@@ -1,0 +1,99 @@
+<RelativeLayout android:id="@+id/detailsScrollView"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.anioncode.spojrzyj.Addnew"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <GridLayout
+        android:id="@+id/Grid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:columnCount="2"
+        android:useDefaultMargins="true">
+
+        <TextView
+            android:id="@+id/nameLabelTextView"
+            style="@style/ContactLabelTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="0"
+            android:layout_row="0"
+            android:text="@string/lewe_oko"/>
+
+        <EditText
+            android:labelFor="@+id/okol"
+            android:id="@+id/okol"
+            style="@style/ContactTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="1"
+            android:layout_row="0"
+            android:textAlignment="center"
+            android:maxLines="1"
+            android:maxLength="6"
+            android:inputType="numberDecimal|numberSigned" />
+
+        <TextView
+            android:id="@+id/phoneLabelTextView"
+            style="@style/ContactLabelTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="0"
+            android:layout_row="1"
+            android:text="@string/prawe_oko"/>
+
+        <EditText
+            android:labelFor="@+id/oko"
+            android:id="@+id/okop"
+            style="@style/ContactTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="1"
+            android:textAlignment="center"
+            android:layout_row="1"
+            android:maxLines="1"
+            android:maxLength="6"
+            android:inputType="numberDecimal|numberSigned"
+            />
+
+
+    </GridLayout>
+    <TextView
+        android:layout_below="@id/Grid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/typ"
+        android:layout_marginStart="10sp"/>
+    <Spinner
+        android:layout_below="@id/Grid"
+        android:layout_width="match_parent"
+        android:layout_marginStart="50dp"
+        android:layout_height="30dp"
+        android:textAlignment="center"
+        android:id="@+id/spinner"></Spinner>
+
+    <DatePicker
+        android:id="@+id/datePicker"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        android:layout_below="@+id/spinner"
+        android:layout_marginBottom="5dp" />
+
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/spinner"
+        android:layout_marginTop="20dp"
+        android:layout_alignEnd="@id/spinner"
+        app:fabSize="normal"
+        app:backgroundTint="@android:color/holo_blue_dark"
+        android:src="@drawable/add"
+        />
+</RelativeLayout>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.anioncode.spojrzyj.SplashScreen"
+
+    android:background="@android:color/white"
+    android:gravity="center"
+    >
+    <RelativeLayout
+        android:id="@+id/image"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center">
+<ImageView
+    android:id="@+id/imagecon"
+    android:padding="20dp"
+    android:layout_width="100dp"
+    android:layout_height="100dp"
+    android:src="@drawable/eye"
+    android:background="@drawable/kolo"
+    android:contentDescription="@string/eye" />
+    </RelativeLayout>
+    <TextView
+
+        android:layout_below="@id/image"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/witaj"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:gravity="center"/>
+
+
+</RelativeLayout>

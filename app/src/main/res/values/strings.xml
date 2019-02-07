@@ -1,0 +1,47 @@
+<resources>
+    <string name="app_name">Spojrzyj</string>
+    <string name="lewe_oko">Lewe oko</string>
+    <string name="prawe_oko">Prawe oko</string>
+    <string name="typ_miesi_czne">Typ: Miesięczne</string>
+    <string name="od_00_00_0000">od 00.00.0000</string>
+    <string name="do_00_00_0000">do 00.00.0000</string>
+    <string name="informacje_podstawoe">Informacje podstawowe</string>
+    <string name="oko_lewe">Oko lewe</string>
+    <string name="oko_prawe">Oko prawe</string>
+    <string name="pozostdni">Pozostało :</string>
+    <string name="dni">dni</string>
+    <string name="dodaj_nowe">Dodaj nowe</string>
+    <string name="witaj">Witaj !</string>
+    <string name="eye">EYE</string>
+    <string name="ok">Miłej przygody z aplikacją .\n Aktualna wersja ułatwi ci życie. </string>
+    <string name="twoje_preferencje">Twoje preferencje</string>
+    <string name="open">Open</string>
+    <string name="close">Close</string>
+    <string name="jednodniowe">Jednodniowe</string>
+    <string name="dwutygodniowe">Dwutygodniowe</string>
+    <string name="miesieczne">Miesięczne</string>
+    <string name="kwartalne">Kwartalne</string>
+    <string name="roczne">Roczne</string>
+    <string name="typ">Typ</string>
+    <string name="od">Od</string>
+    <string name="zarzadzaj">Zarządzaj</string>
+    <string name="akcje">Wybierz swoje akcje</string>
+    <string name="main">Główna</string>
+    <string name="info">O programie</string>
+    <string name="zamknij">Zamknij</string>
+    <string name="doo">do</string>
+    <string name="informacje">Wersja aktualna to 1.0-2019 \nZnajduje się na poziomie testów .\nFunkcje w tej części to:\n-Zapisywanie mocy soczewek\n-Ustawienie daty ważności soczewki\n-Powiadomienia o konieczności zmiany soczewki\n-Ważnosć soczewek\n*Kontakt pawkrzysciak@gmail.com</string>
+    <string name="program">Informacja</string>
+    <string name="twoje">Twoje soczewki :</string>
+    <string name="historia">Historia</string>
+    <string name="appwidget_text">Pozostało dni :</string>
+    <string name="add_widget">Add widget</string>
+
+    <!--<string-array name="lens_array">-->
+    <!--<item>Jednodniowe</item>-->
+    <!--<item>Dwu tygodniowe</item>-->
+    <!--<item>Miesięczne</item>-->
+    <!--<item>Kwartalne</item>-->
+    <!--<item>Roczne</item>-->
+    <!--</string-array>-->
+</resources>

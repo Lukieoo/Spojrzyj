@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Spojrzyj</string>
+    <string name="lewe_oko">Left eye</string>
+    <string name="prawe_oko">Right eye</string>
+    <string name="typ_miesi_czne">Monthly Contacts</string>
+    <string name="od_00_00_0000">00.00.0000</string>
+    <string name="do_00_00_0000">00.00.0000</string>
+    <string name="informacje_podstawoe">Basic information</string>
+    <string name="oko_lewe">Left eye</string>
+    <string name="oko_prawe">Right eye</string>
+    <string name="pozostdni">There are days left:</string>
+    <string name="dodaj_nowe">Add new</string>
+    <string name="witaj">Welcome</string>
+    <string name="eye">EYE</string>
+    <string name="ok">" Have a nice adventure with this application."</string>
+    <string name="twoje_preferencje">Your preferences</string>
+    <string name="open">Open</string>
+    <string name="close">Close</string>
+    <string name="jednodniowe">Daily</string>
+    <string name="dwutygodniowe">Two Weekly</string>
+    <string name="miesieczne">Monthly</string>
+    <string name="roczne">Annual</string>
+    <string name="kwartalne">Quarterly</string>
+    <string name="typ">"Type "</string>
+    <string name="dni">Day</string>
+    <string name="od">Since</string>
+    <string name="doo">To</string>
+    <string name="zarzadzaj">Manage</string>
+    <string name="zamknij">Close</string>
+    <string name="info">Information</string>
+    <string name="main">Home</string>
+    <string name="akcje">Choose your action</string>
+    <string name="program">Information</string>
+    <string name="informacje">Current version 1.0-2019 \n If you want ask :\npawkrzysciak@gmail.com</string>
+    <string name="twoje">Lens expire</string>
+    <string name="historia">History</string>
+    <string name="appwidget_text">Day left :</string>
+    <string name="add_widget">Add view</string>
+
+</resources>
