@@ -23,7 +23,7 @@
         android:contentDescription="@string/appwidget_text"
         android:fontFamily="sans-serif"
         android:text="@string/appwidget_text"
-        android:textColor="@color/colorPrimaryDark"
+        android:textColor="@android:color/white"
         android:textSize="15sp"
         android:textStyle="bold" />
 

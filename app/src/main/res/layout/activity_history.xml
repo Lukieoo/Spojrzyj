@@ -15,10 +15,9 @@
         android:id="@+id/fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginBottom="25dp"
+        android:layout_marginBottom="45dp"
         android:layout_marginEnd="25dp"
         android:elevation="8dp"
         android:scaleType="center"
@@ -27,10 +26,13 @@
         app:fabSize="normal"
         app:rippleColor="@android:color/black" />
     <ListView
+
         android:id="@+id/listview"
+        android:listSelector="@drawable/borderhistory"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="3dp"
+        android:dividerHeight="1dp"
         android:layout_margin="20dp">
 
     </ListView>

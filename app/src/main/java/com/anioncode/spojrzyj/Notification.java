@@ -26,7 +26,7 @@ public class Notification extends Service {
                 0, notificationIntent, 0);
 
         android.app.Notification notification = new NotificationCompat.Builder(this, "Spojrzyj")
-                .setContentTitle("Example Service")
+                .setContentTitle("Notification")
                 .setContentText(input)
                 .setSmallIcon(R.drawable.eye)
                 .setContentIntent(pendingIntent)

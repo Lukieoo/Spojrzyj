@@ -123,7 +123,7 @@ public class NewAppWidget extends AppWidgetProvider {
             updateAppWidget(context, appWidgetManager, appWidgetId);
            // CharSequence widgetText = context.getString(R.string.appwidget_text);
             // Construct the RemoteViews object
-            RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.widget);
+            RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.new_app_widget);
             views.setTextViewText(R.id.appwidget_text,Integer.toString((int)LensView(mDatabaseHelper)));
 
 

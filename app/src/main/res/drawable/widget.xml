@@ -9,7 +9,10 @@
 
   
 <solid
-    android:color="#50FFFFFF"/>
+    android:color="#50000000"
+    />
+    <!--android:color="#50FFFFFF"-->
+
     <padding
         android:bottom="5dp"
         android:left="5dp"
