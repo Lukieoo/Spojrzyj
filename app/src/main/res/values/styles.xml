@@ -22,5 +22,9 @@
         <item name="android:background">@drawable/textview_border</item>
     </style>
 
+    <style name="CheckBoxTheme" parent="Theme.AppCompat.Light">
+        <item name="colorControlNormal">#FFF</item>
+        <item name="colorControlActivated">#FFF</item>
+    </style>
 
 </resources>

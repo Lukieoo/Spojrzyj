@@ -6,8 +6,8 @@ android {
         applicationId "com.anioncode.spojrzyj"
         minSdkVersion 21
         targetSdkVersion 27
-        versionCode 3
-        versionName "1.2"
+        versionCode 4
+        versionName "1.4"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {

@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="pl.warrioirbot.zst.MainActivity">
+    tools:context="com.anioncode.spojrzyj.MainActivity">
 <item android:id="@+id/menu" android:title="@string/main" android:icon="@drawable/ic_home_black_24dp" />
 <item android:id="@+id/historia" android:title="@string/historia" android:icon="@drawable/ic_history_black_24dp" />
 <item android:id="@+id/info" android:title="@string/info" android:icon="@drawable/ic_info_black_24dp" />
 <item android:id="@+id/close" android:title="@string/zamknij" android:icon="@drawable/ic_close_black_24dp" />
+
 
 </menu>

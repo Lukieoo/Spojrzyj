@@ -1,29 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:orientation="vertical"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
     android:layout_height="160dp"
-
     android:background="@color/colorAccent"
+    android:orientation="vertical"
+    tools:context="com.anioncode.spojrzyj.MainActivity"
     android:padding="20dp">
-    
-<ImageView
-    android:src="@drawable/eye"
-    android:layout_width="50dp"
-    android:layout_height="50dp"
-    />
+
+
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:contentDescription="@string/todo"
+        android:src="@drawable/eye" />
+
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="0dp"
         android:text="@string/zarzadzaj"
         android:textColor="@android:color/black"
-        android:textStyle="bold"
-        android:textSize="30dp"
-        android:layout_marginTop="0dp"/>
+        android:textSize="30sp"
+        android:textStyle="bold" />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/akcje"
-        android:textColor="@android:color/black"/>
+        android:textColor="@android:color/black" />
+
 
 </LinearLayout>

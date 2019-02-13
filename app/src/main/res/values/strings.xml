@@ -36,6 +36,8 @@
     <string name="historia">Historia</string>
     <string name="appwidget_text">Pozostało dni :</string>
     <string name="add_widget">Add widget</string>
+    <string name="todo">TODO</string>
+    <string name="powiadomienia">Powiadomienia</string>
 
     <!--<string-array name="lens_array">-->
     <!--<item>Jednodniowe</item>-->
