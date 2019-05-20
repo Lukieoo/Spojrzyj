@@ -4,6 +4,7 @@ import android.appwidget.AppWidgetManager;
 import android.appwidget.AppWidgetProvider;
 import android.content.Context;
 import android.database.Cursor;
+import android.widget.RelativeLayout;
 import android.widget.RemoteViews;
 import android.widget.Toast;
 
@@ -18,6 +19,7 @@ import static com.anioncode.spojrzyj.MainActivity.GLOBALNA;
  */
 public class NewAppWidget extends AppWidgetProvider {
 
+    RelativeLayout relativeLayout;
     static void updateAppWidget(Context context, AppWidgetManager appWidgetManager,
                                 int appWidgetId) {
 

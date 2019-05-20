@@ -1,6 +1,7 @@
 package com.anioncode.spojrzyj;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.support.design.widget.FloatingActionButton;
@@ -47,12 +48,20 @@ public class Addnew extends AppCompatActivity implements AdapterView.OnItemSelec
         super.onCreate(savedInstanceState);
         setContentView(R.layout.data);
 
-        spinner();
+        final SharedPreferences sharedPref = getPreferences(this.MODE_PRIVATE);
+        spinner(sharedPref);
         datePicker= findViewById(R.id.datePicker);
 
         editText1=findViewById(R.id.okol);
         editText2=findViewById(R.id.okop);
 
+
+        String txtokolewe = sharedPref.getString("okolewe", "");
+        String txtokoprawe = sharedPref.getString("okoprawe", "");
+
+
+        editText1.setText(txtokolewe);
+        editText2.setText(txtokoprawe);
 
        // Praweoko= Double.parseDouble(String.valueOf(editText2.getText()));
       //  Praweoko= Double.valueOf(String.valueOf(editText2.getText()));
@@ -61,6 +70,19 @@ public class Addnew extends AppCompatActivity implements AdapterView.OnItemSelec
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                SharedPreferences.Editor editor = sharedPref.edit();
+                editor.putString("okolewe", String.valueOf(editText1.getText()));
+                editor.commit();
+
+                SharedPreferences.Editor editorx = sharedPref.edit();
+                editorx.putString("okoprawe", String.valueOf(editText2.getText()));
+                editorx.commit();
+
+                SharedPreferences.Editor editorxx = sharedPref.edit();
+                editorxx.putString("typ", Typ);
+                editorxx.commit();
+
 
                 day = datePicker.getDayOfMonth();
                 month = datePicker.getMonth() + 1;
@@ -107,7 +129,8 @@ public class Addnew extends AppCompatActivity implements AdapterView.OnItemSelec
         finish();
     }
 
-    public void spinner(){
+    public void spinner( SharedPreferences sharedPreferences){
+
         spinner=findViewById(R.id.spinner);
         spinner.setOnItemSelectedListener( Addnew.this);
 
@@ -127,12 +150,19 @@ public class Addnew extends AppCompatActivity implements AdapterView.OnItemSelec
         ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, categories);
         dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(dataAdapter);
+        String compareValue = sharedPreferences.getString("typ", "");
+       // String compareValue = String.valueOf(trees.getWysokosc());
 
+        if (compareValue != null) {
+            int spinnerPosition = dataAdapter.getPosition(compareValue);
+            spinner.setSelection(spinnerPosition);
+        }
 
     }
 
     @Override
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+
 
         Typ=adapterView.getItemAtPosition(i).toString();
 
