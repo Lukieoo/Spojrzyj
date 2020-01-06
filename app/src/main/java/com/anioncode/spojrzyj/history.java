@@ -16,6 +16,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
@@ -32,7 +33,7 @@ public class history extends AppCompatActivity {
     private NavigationView navigationView;
     private DrawerLayout drawerLayout;
     public ActionBarDrawerToggle sToogel;
-
+    private RelativeLayout relativeLayout;
     DatabaseHelper mDatabaseHelper;
     FloatingActionButton floatingActionButton;
     @Override
@@ -127,7 +128,16 @@ public class history extends AppCompatActivity {
         });
 
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer);
-        sToogel = new ActionBarDrawerToggle(this, drawerLayout, R.string.open, R.string.close);
+        relativeLayout=findViewById(R.id.relative);
+        sToogel = new ActionBarDrawerToggle(this, drawerLayout, R.string.open, R.string.close){
+            @Override
+            public void onDrawerSlide(View drawerView, float slideOffset) {
+                super.onDrawerSlide(drawerView, slideOffset);
+                float slideX = drawerView.getWidth() * slideOffset;
+                relativeLayout.setTranslationX(slideX);
+
+            }
+        };
         drawerLayout.addDrawerListener(sToogel);
         sToogel.syncState();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);

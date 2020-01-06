@@ -24,6 +24,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.ProgressBar;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.google.android.gms.ads.AdRequest;
@@ -50,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
     private NavigationView navigationView;
     private DrawerLayout drawerLayout;
     public ActionBarDrawerToggle sToogel;
+    public ScrollView scrol;
     int dni = 0;
     long pozostalo = 0;
     String Data_do = "";
@@ -164,6 +166,7 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.historia: {
 
                         finish();
+                     //   overridePendingTransition(R.anim.slide_from_left, R.anim.slide_to_right);
                         drawerLayout.closeDrawers();
                         Intent intent = new Intent(MainActivity.this, history.class);
                         startActivity(intent);
@@ -181,7 +184,17 @@ public class MainActivity extends AppCompatActivity {
         });
 
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer);
-        sToogel = new ActionBarDrawerToggle(this, drawerLayout, R.string.open, R.string.close);
+        scrol=findViewById(R.id.scrol);
+        sToogel = new ActionBarDrawerToggle(this, drawerLayout, R.string.open, R.string.close){
+            @Override
+            public void onDrawerSlide(View drawerView, float slideOffset) {
+                super.onDrawerSlide(drawerView, slideOffset);
+                float slideX = drawerView.getWidth() * slideOffset;
+                scrol.setTranslationX(slideX);
+
+            }
+        };
+
         drawerLayout.addDrawerListener(sToogel);
         sToogel.syncState();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
