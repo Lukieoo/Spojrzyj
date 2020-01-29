@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+
+    android:layout_marginTop="4dp"
+    android:background="@color/colorAccent"
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+<ImageView
+    android:layout_centerVertical="true"
+    android:id="@+id/eye"
+    android:layout_margin="10dp"
+    android:src="@drawable/eye"
+    android:layout_width="20dp"
+    android:layout_height="20dp"/>
+    <TextView
+        android:textColor="@android:color/white"
+        android:text="dd/mm/yyyy"
+        style="@style/TextAppearance.AppCompat.Body1"
+        android:id="@+id/date"
+        android:layout_marginLeft="10dp"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@id/eye"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <TextView
+
+        android:textColor="@android:color/white"
+        android:id="@+id/komunikat"
+        android:text="założono soczewki"
+        android:layout_marginLeft="10dp"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@id/date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+</RelativeLayout>

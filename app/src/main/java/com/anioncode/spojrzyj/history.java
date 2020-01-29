@@ -17,7 +17,9 @@ import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
 
+import com.anioncode.spojrzyj.Activity.CalendarActivity;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
@@ -51,9 +53,12 @@ public class history extends AppCompatActivity {
         mAdView.loadAd(adRequest);
 
         mDatabaseHelper=new DatabaseHelper(getApplicationContext());
+
+        navigation();
+        LensView();
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(final View view) {
 
 
 
@@ -76,7 +81,8 @@ public class history extends AppCompatActivity {
                                 "No",
                                 new DialogInterface.OnClickListener() {
                                     public void onClick(DialogInterface dialog, int id) {
-                                        LensView();
+                                        Toast.makeText(view.getContext(),listView.getSelectedItemPosition()+"",Toast.LENGTH_LONG).show();
+                                       // LensView();
 
                                         dialog.cancel();
                                     }
@@ -88,8 +94,6 @@ public class history extends AppCompatActivity {
             }
         });
 
-        navigation();
-        LensView();
     }
 
     private void navigation() {
@@ -115,6 +119,14 @@ public class history extends AppCompatActivity {
                     }
                     case R.id.historia: {
                         drawerLayout.closeDrawers();
+                        break;
+                    }
+                    case R.id.kalendarz: {
+                        Intent intent =new Intent(history.this, CalendarActivity.class);
+                        startActivity(intent);
+
+                        drawerLayout.closeDrawers();
+                        finish();
                         break;
                     }
                     case R.id.close: {

@@ -27,6 +27,7 @@ import android.widget.ProgressBar;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
+import com.anioncode.spojrzyj.Activity.CalendarActivity;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
@@ -163,6 +164,7 @@ public class MainActivity extends AppCompatActivity {
 
                         break;
                     }
+
                     case R.id.historia: {
 
                         finish();
@@ -172,6 +174,15 @@ public class MainActivity extends AppCompatActivity {
                         startActivity(intent);
 
                         break;
+                    }
+                    case R.id.kalendarz: {
+                        finish();
+                        drawerLayout.closeDrawers();
+                        Intent intent =new Intent(MainActivity.this, CalendarActivity.class);
+                        startActivity(intent);
+
+                        break;
+
                     }
                     case R.id.close: {
                         System.exit(0);
@@ -346,8 +357,10 @@ public class MainActivity extends AppCompatActivity {
                 .setStyle(new NotificationCompat.BigTextStyle()
                         .bigText(getString(R.string.pozostdni) + " " + pozostalo + " " + getString(R.string.dni)))
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT);
+
         PendingIntent contentIntent = PendingIntent.getActivity(this, 0,
                 new Intent(this, MainActivity.class), PendingIntent.FLAG_UPDATE_CURRENT);
+
         mBuilder.setContentIntent(contentIntent);
 
         NotificationManagerCompat notificationManager = NotificationManagerCompat.from(this);

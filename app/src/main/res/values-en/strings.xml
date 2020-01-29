@@ -32,12 +32,14 @@
     <string name="main">Home</string>
     <string name="akcje">Choose your action</string>
     <string name="program">Information</string>
-    <string name="informacje">Current version 1.5-2019   If you want ask : pawkrzysciak@gmail.com</string>
+    <string name="informacje">Current version 1.5-2019   \nIf you want ask : pawkrzysciak@gmail.com</string>
     <string name="twoje">Lens expire</string>
     <string name="historia">History</string>
     <string name="appwidget_text">Day left :</string>
     <string name="add_widget">Add view</string>
     <string name="todo">Todo</string>
     <string name="powiadomienia">Notifications</string>
+    <string name="kalendarz">Calendar</string>
+    <string name="select">No Data</string>
 
 </resources>
