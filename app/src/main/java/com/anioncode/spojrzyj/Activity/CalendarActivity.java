@@ -45,7 +45,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
-public class CalendarActivity extends AppCompatActivity implements AdapterCalendar.ItemClickListener{
+public class CalendarActivity extends AppCompatActivity implements AdapterCalendar.ItemClickListener {
     private NavigationView navigationView;
     private DrawerLayout drawerLayout;
     public ActionBarDrawerToggle sToogel;
@@ -56,7 +56,9 @@ public class CalendarActivity extends AppCompatActivity implements AdapterCalend
     ArrayList<Data> listData;
     DatabaseHelper mDatabaseHelper;
     private SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd MMMM yyyy", Locale.getDefault());
-     CompactCalendarView compactCalendarView;
+    CompactCalendarView compactCalendarView;
+    ArrayList<Event> eventy;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,32 +66,19 @@ public class CalendarActivity extends AppCompatActivity implements AdapterCalend
         navigation();
         DayYear = findViewById(R.id.DayYear);
         text = findViewById(R.id.Text);
-         compactCalendarView = (CompactCalendarView) findViewById(R.id.compactcalendar_view);
-        // Set first day of week to Monday, defaults to Monday so calling setFirstDayOfWeek is not necessary
-        // Use constants provided by Java Calendar class
+        compactCalendarView = (CompactCalendarView) findViewById(R.id.compactcalendar_view);
+
         compactCalendarView.setFirstDayOfWeek(Calendar.MONDAY);
-        mDatabaseHelper=new DatabaseHelper(getApplicationContext());
+        mDatabaseHelper = new DatabaseHelper(getApplicationContext());
         compactCalendarView.setUseThreeLetterAbbreviation(true);
         // Add event 1 on Sun, 07 Jun 2015 18:20:51 GMT
-        final Event ev1 = new Event(Color.WHITE, 1433701251000L, "Some extra data that I want to store.");
-        compactCalendarView.addEvent(ev1);
+        eventy = new ArrayList<>();
 
         Date date = new Date(System.currentTimeMillis());
-
+        listData = new ArrayList<>();
 
         DayYear.setText(simpleDateFormat.format(date));
-        // Added event 2 GMT: Sun, 07 Jun 2015 19:10:51 GMT
-        Event ev2 = new Event(Color.WHITE, 1433704251000L);
-        compactCalendarView.addEvent(ev2);
 
-        // Query for events on Sun, 07 Jun 2015 GMT.
-        // Time is not relevant when querying for events, since events are returned by day.
-        // So you can pass in any arbitary DateTime and you will receive all events for that day.
-        List<Event> events = compactCalendarView.getEvents(1433701251000L); // can also take a Date object
-
-        // events has size 2 with the 2 events inserted previously
-
-        // define a listener to receive callbacks when certain events happen.
         compactCalendarView.setListener(new CompactCalendarView.CompactCalendarViewListener() {
             @Override
             public void onDayClick(Date dateClicked) {
@@ -97,32 +86,34 @@ public class CalendarActivity extends AppCompatActivity implements AdapterCalend
                 // Log.d(TAG, "Day was clicked: " + dateClicked + " with events " + events);
                 DayYear.setText(simpleDateFormat.format(dateClicked));
                 listData.clear();
-                for (Event event:events){
-                    listData.add(new Data(simpleDateFormat.format(dateClicked),event.getData().toString()));
+                for (Event event : events) {
+                    listData.add(new Data(simpleDateFormat.format(dateClicked), event.getData().toString()));
                 }
-                if(listData.size()>0)text.setVisibility(View.GONE);
+                if (listData.size() > 0) text.setVisibility(View.GONE);
                 else text.setVisibility(View.VISIBLE);
+                adapter.notifyDataSetChanged();
             }
 
             @Override
             public void onMonthScroll(Date firstDayOfNewMonth) {
-                LensView();
-                if(listData.size()>0)text.setVisibility(View.GONE);
+                //   LensView();
+                listData.clear();
+                List<Event> events = compactCalendarView.getEvents(firstDayOfNewMonth);
+                for (Event a : events) {
+                    listData.add(new Data(simpleDateFormat.format(firstDayOfNewMonth), a.getData().toString()));
+                }
+                if (events.size() > 0) text.setVisibility(View.GONE);
                 else text.setVisibility(View.VISIBLE);
-                //   Log.d(TAG, "Month was scrolled to: " + firstDayOfNewMonth);
+                adapter.notifyDataSetChanged();
                 DayYear.setText(simpleDateFormat.format(firstDayOfNewMonth));
             }
         });
 
-         listData = new ArrayList<>();
-        LensView();
-       // animalNames.add("Horse");
-       // animalNames.add("Cow");
-       // animalNames.add("Camel");
-      //  animalNames.add("Sheep");
-      //  animalNames.add("Goat");
 
-        if(listData.size()>0)text.setVisibility(View.GONE);
+        LensView();
+
+
+        if (listData.size() > 0) text.setVisibility(View.GONE);
         else text.setVisibility(View.VISIBLE);
 
         RecyclerView recyclerView = findViewById(R.id.itemsEye);
@@ -132,34 +123,88 @@ public class CalendarActivity extends AppCompatActivity implements AdapterCalend
         recyclerView.setAdapter(adapter);
 
     }
+
     private void LensView() {
 
         Cursor data = mDatabaseHelper.AllData();
 
-        while(data.moveToNext()) {
+        while (data.moveToNext()) {
             //get the value from the database in column 1
             //then add it to the ArrayList
-           // listData.add(data.getInt(0)+". L: "+data.getDouble(1)+", P: "+data.getDouble(2)+" "+data.getString(3)+" "+data.getString(4));
-            listData.add(new Data(data.getString(4),"Założenie soczewek"));
+            // listData.add(data.getInt(0)+". L: "+data.getDouble(1)+", P: "+data.getDouble(2)+" "+data.getString(3)+" "+data.getString(4));
+            //  listData.add(new Data(data.getString(4),"Założenie soczewek"));
 
-            String input = data.getString(4).replace( "." , "-" )+" 18:00:00".replace( " " , "T" ) ;
+            // String input = data.getString(4).replace( "." , "-" )+" 18:00:00".replace( " " , "T" ) ;
+            System.out.println(data.getString(4));
 
-            if(input.charAt(4)=='-')input=input.subSequence(0,3)+"0"+input.subSequence(3,input.length());
-            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+            SimpleDateFormat formatter = new SimpleDateFormat("dd.MM.yyyy");
 
-                  LocalDateTime ldt = LocalDateTime.parse( input) ;
-                ZoneId z = ZoneId.of( "Europe/Poland" ) ;
-                ZonedDateTime zdt = ldt.atZone( z ) ;
-                Instant instant = zdt.toInstant() ;
-                long millisSinceEpoch = instant.toEpochMilli() ;
-                Event ev2 = new Event(Color.WHITE, millisSinceEpoch,"Założenie soczewek");
-                compactCalendarView.addEvent(ev2);
+            Calendar c = Calendar.getInstance();
+            try {
 
+                Date date = formatter.parse(data.getString(4));
+                System.out.println(date);
+                System.out.println(formatter.format(date));
+                eventy.add(new Event(Color.BLUE, date.getTime(), "Założone soczeweki : " + data.getString(3)));
+                c.setTime(date);
+                switch (data.getString(3)) {
+                    case "Jednodniowe": {
+                        c.add(Calendar.DAY_OF_MONTH, 1);
+                        break;
+                    }
+                    case "Dwutygodniowe": {
+                        c.add(Calendar.DAY_OF_MONTH, 14);
+                        break;
+                    }
+                    case "Miesięczne": {
+                        c.add(Calendar.DAY_OF_MONTH, 31);
+                        break;
+                    }
+                    case "Kwartalne": {
+                        c.add(Calendar.DAY_OF_MONTH, 93);
+                        break;
+                    }
+                    case "Roczne": {
+                        c.add(Calendar.DAY_OF_MONTH, 365);
+                        break;
+                    }
+                    case "Daily": {
+                        c.add(Calendar.DAY_OF_MONTH, 1);
+                        break;
+                    }
+                    case "Two Weekly": {
+                        c.add(Calendar.DAY_OF_MONTH, 14);
+                        break;
+                    }
+                    case "Monthly": {
+                        c.add(Calendar.DAY_OF_MONTH, 31);
+                        break;
+                    }
+                    case "Quarterly": {
+                        c.add(Calendar.DAY_OF_MONTH, 93);
+                        break;
+                    }
+                    case "Annual": {
+                        c.add(Calendar.DAY_OF_MONTH, 365);
+                        break;
+                    }
+                    default: {
+                        c.add(Calendar.DAY_OF_MONTH, 1);
+                    }
+
+                }
+                Date date1 = c.getTime();
+                eventy.add(new Event(Color.RED, date1.getTime(), "Termin ważności dla : " + formatter.format(date)));
+
+            } catch (ParseException e) {
+                e.printStackTrace();
             }
 
-        }
 
+        }
+        compactCalendarView.addEvents(eventy);
     }
+
     @Override
     public void onBackPressed() {
 
@@ -168,9 +213,10 @@ public class CalendarActivity extends AppCompatActivity implements AdapterCalend
         finish();
 
     }
+
     @Override
     public void onItemClick(View view, int position) {
-        Toast.makeText(this, "You clicked " + adapter.getItem(position) + " on row number " + position, Toast.LENGTH_SHORT).show();
+      //  Toast.makeText(this, "You clicked " + adapter.getItem(position) + " on row number " + position, Toast.LENGTH_SHORT).show();
     }
 
     private void navigation() {
@@ -187,7 +233,7 @@ public class CalendarActivity extends AppCompatActivity implements AdapterCalend
                         //overridePendingTransition(R.anim.slide_from_left, R.anim.slide_to_right);
                         Intent intent = new Intent(CalendarActivity.this, MainActivity.class);
                         startActivity(intent);
-
+                        finish();
 
                         drawerLayout.closeDrawers();
                         break;
@@ -271,4 +317,5 @@ public class CalendarActivity extends AppCompatActivity implements AdapterCalend
         AlertDialog alert11 = builder1.create();
         alert11.show();
     }
+
 }

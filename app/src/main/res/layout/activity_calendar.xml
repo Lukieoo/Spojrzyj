@@ -14,6 +14,7 @@
         tools:context=".Activity.CalendarActivity">
 
         <RelativeLayout
+
             android:background="@color/colorAccent"
             android:id="@+id/MainView"
             android:padding="10dp"
@@ -40,11 +41,11 @@
             android:layout_height="250dp"
             app:compactCalendarTargetHeight="250dp"
             app:compactCalendarTextSize="12sp"
-            app:compactCalendarBackgroundColor="@color/colorAccent"
-            app:compactCalendarTextColor="#fff"
-            app:compactCalendarCurrentSelectedDayBackgroundColor="@color/colorPrimary"
-            app:compactCalendarCurrentDayBackgroundColor="@color/colorPrimaryDark"
-            app:compactCalendarMultiEventIndicatorColor="#fff"
+            app:compactCalendarBackgroundColor="@android:color/white"
+            app:compactCalendarTextColor="#555"
+            app:compactCalendarCurrentSelectedDayBackgroundColor="@color/colorAccent"
+            app:compactCalendarCurrentDayBackgroundColor="#aecaff"
+            app:compactCalendarMultiEventIndicatorColor="@color/colorAccent"
             />
         <TextView
             android:id="@+id/Text"
@@ -56,7 +57,7 @@
             android:layout_height="match_parent"/>
     <android.support.v7.widget.RecyclerView
         android:id="@+id/itemsEye"
-
+        android:padding="5dp"
         android:layout_below="@id/compactcalendar_view"
         android:layout_alignParentBottom="true"
         android:layout_width="match_parent"
