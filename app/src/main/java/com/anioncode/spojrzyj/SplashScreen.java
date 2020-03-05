@@ -2,10 +2,8 @@ package com.anioncode.spojrzyj;
 
 import android.content.Intent;
 import android.os.Handler;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.Window;
-import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
@@ -18,7 +16,7 @@ ImageView imageView;
         setContentView(R.layout.activity_splash_screen);
 
         imageView=findViewById(R.id.imagecon);
-        SplashScreen.this.getSupportActionBar().hide();
+//        SplashScreen.this.getSupportActionBar().hide();
 
 
         Animation animation= AnimationUtils.loadAnimation(getApplicationContext(),R.anim.fade);
@@ -32,7 +30,7 @@ ImageView imageView;
      new Handler().postDelayed(new Runnable() {
          @Override
          public void run() {
-             Intent intent= new Intent(SplashScreen.this,MainActivity.class);
+             Intent intent= new Intent(SplashScreen.this,DashboardActivity.class);
              startActivity(intent);
              finish();
          }

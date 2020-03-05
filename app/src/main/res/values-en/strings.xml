@@ -41,5 +41,6 @@
     <string name="powiadomienia">Notifications</string>
     <string name="kalendarz">Calendar</string>
     <string name="select">No Data</string>
-
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
 </resources>

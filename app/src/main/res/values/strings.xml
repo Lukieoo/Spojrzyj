@@ -41,11 +41,8 @@
     <string name="kalendarz">Kalendarz</string>
     <string name="select">Brak wpisów</string>
 
-    <!--<string-array name="lens_array">-->
-    <!--<item>Jednodniowe</item>-->
-    <!--<item>Dwu tygodniowe</item>-->
-    <!--<item>Miesięczne</item>-->
-    <!--<item>Kwartalne</item>-->
-    <!--<item>Roczne</item>-->
-    <!--</string-array>-->
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+
 </resources>

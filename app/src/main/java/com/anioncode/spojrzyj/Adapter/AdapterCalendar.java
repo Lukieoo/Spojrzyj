@@ -2,7 +2,7 @@ package com.anioncode.spojrzyj.Adapter;
 
 
 import android.content.Context;
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,7 +12,6 @@ import com.anioncode.spojrzyj.Model.Data;
 import com.anioncode.spojrzyj.R;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class AdapterCalendar extends RecyclerView.Adapter<AdapterCalendar.ViewHolder> {
 
