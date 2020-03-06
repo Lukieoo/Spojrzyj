@@ -6,7 +6,6 @@
 <item android:id="@+id/historia" android:title="@string/historia" android:icon="@drawable/ic_history_black_24dp" />
 <item android:id="@+id/kalendarz" android:title="@string/kalendarz" android:icon="@drawable/ic_date" />
 <item android:id="@+id/info" android:title="@string/info" android:icon="@drawable/ic_info_black_24dp" />
-<item android:id="@+id/close" android:title="@string/zamknij" android:icon="@drawable/ic_close_black_24dp" />
 
 
 </menu>

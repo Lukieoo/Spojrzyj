@@ -1,34 +1,27 @@
-package com.anioncode.spojrzyj.Activity;
+package com.anioncode.spojrzyj.Fragments;
 
-import android.content.DialogInterface;
-import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Color;
-import androidx.annotation.NonNull;
-import com.google.android.material.navigation.NavigationView;
-import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.appcompat.app.ActionBarDrawerToggle;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.os.Build;
 import android.os.Bundle;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
-import android.view.MenuItem;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.anioncode.spojrzyj.Adapter.AdapterCalendar;
 import com.anioncode.spojrzyj.DatabaseHelper;
-import com.anioncode.spojrzyj.MainActivity;
 import com.anioncode.spojrzyj.Model.Data;
 import com.anioncode.spojrzyj.R;
-import com.anioncode.spojrzyj.history;
 import com.github.sundeepk.compactcalendarview.CompactCalendarView;
 import com.github.sundeepk.compactcalendarview.domain.Event;
+import com.google.android.material.navigation.NavigationView;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -38,7 +31,8 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
-public class CalendarActivity extends AppCompatActivity implements AdapterCalendar.ItemClickListener {
+public class CalendarFragment extends Fragment {
+
     private NavigationView navigationView;
     private DrawerLayout drawerLayout;
     public ActionBarDrawerToggle sToogel;
@@ -53,16 +47,14 @@ public class CalendarActivity extends AppCompatActivity implements AdapterCalend
     ArrayList<Event> eventy;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_calendar);
-        navigation();
-        DayYear = findViewById(R.id.DayYear);
-        text = findViewById(R.id.Text);
-        compactCalendarView = (CompactCalendarView) findViewById(R.id.compactcalendar_view);
+    public View onCreateView(LayoutInflater inflater, ViewGroup parent, Bundle savedInstanceState) {
+        View view= inflater.inflate(R.layout.calendar_fragment, parent, false);
+        DayYear = view.findViewById(R.id.DayYear);
+        text = view.findViewById(R.id.Text);
+        compactCalendarView = (CompactCalendarView) view.findViewById(R.id.compactcalendar_view);
 
         compactCalendarView.setFirstDayOfWeek(Calendar.MONDAY);
-        mDatabaseHelper = new DatabaseHelper(getApplicationContext());
+        mDatabaseHelper = new DatabaseHelper(getActivity());
         compactCalendarView.setUseThreeLetterAbbreviation(true);
         // Add event 1 on Sun, 07 Jun 2015 18:20:51 GMT
         eventy = new ArrayList<>();
@@ -109,14 +101,17 @@ public class CalendarActivity extends AppCompatActivity implements AdapterCalend
         if (listData.size() > 0) text.setVisibility(View.GONE);
         else text.setVisibility(View.VISIBLE);
 
-        RecyclerView recyclerView = findViewById(R.id.itemsEye);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        adapter = new AdapterCalendar(this, listData);
-        adapter.setClickListener(this);
+        RecyclerView recyclerView = view.findViewById(R.id.itemsEye);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        adapter = new AdapterCalendar(getActivity(), listData);
+        //adapter.setClickListener(this);
         recyclerView.setAdapter(adapter);
 
-    }
 
+
+
+        return  view;
+    }
     private void LensView() {
 
         Cursor data = mDatabaseHelper.AllData();
@@ -138,9 +133,7 @@ public class CalendarActivity extends AppCompatActivity implements AdapterCalend
                 Date date = formatter.parse(data.getString(4));
                 System.out.println(date);
                 System.out.println(formatter.format(date));
-
-                    eventy.add(new Event(Color.parseColor("#81d4fa"), date.getTime(), "Założone soczeweki : " + data.getString(3)));
-
+                eventy.add(new Event(Color.parseColor("#81d4fa"), date.getTime(), "Założone soczeweki : " + data.getString(3)));
                 c.setTime(date);
                 switch (data.getString(3)) {
                     case "Jednodniowe": {
@@ -199,119 +192,4 @@ public class CalendarActivity extends AppCompatActivity implements AdapterCalend
         }
         compactCalendarView.addEvents(eventy);
     }
-
-    @Override
-    public void onBackPressed() {
-
-        Intent intent = new Intent(CalendarActivity.this, MainActivity.class);
-        startActivity(intent);
-        finish();
-
-    }
-
-    @Override
-    public void onItemClick(View view, int position) {
-      //  Toast.makeText(this, "You clicked " + adapter.getItem(position) + " on row number " + position, Toast.LENGTH_SHORT).show();
-    }
-
-    private void navigation() {
-
-        navigationView = findViewById(R.id.navigationd_view);
-
-
-        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                switch (item.getItemId()) {
-                    case R.id.menu: {
-                        finish();
-                        //overridePendingTransition(R.anim.slide_from_left, R.anim.slide_to_right);
-                        Intent intent = new Intent(CalendarActivity.this, MainActivity.class);
-                        startActivity(intent);
-                        finish();
-
-                        drawerLayout.closeDrawers();
-                        break;
-                    }
-                    case R.id.info: {
-                        Info();
-                        drawerLayout.closeDrawers();
-
-                        break;
-                    }
-
-                    case R.id.historia: {
-
-
-                        overridePendingTransition(R.anim.slide_from_left, R.anim.slide_to_right);
-                        drawerLayout.closeDrawers();
-                        Intent intent = new Intent(CalendarActivity.this, history.class);
-                        startActivity(intent);
-                        finish();
-                        break;
-                    }
-                    case R.id.kalendarz: {
-
-                        drawerLayout.closeDrawers();
-
-                        break;
-                    }
-                    case R.id.close: {
-                        System.exit(0);
-                        break;
-                    }
-
-                }
-                return false;
-            }
-        });
-
-        drawerLayout = (DrawerLayout) findViewById(R.id.drawer);
-        scrol = findViewById(R.id.Main);
-
-        sToogel = new ActionBarDrawerToggle(this, drawerLayout, R.string.open, R.string.close) {
-            @Override
-            public void onDrawerSlide(View drawerView, float slideOffset) {
-                super.onDrawerSlide(drawerView, slideOffset);
-                float slideX = drawerView.getWidth() * slideOffset;
-                scrol.setTranslationX(slideX);
-
-            }
-        };
-
-        drawerLayout.addDrawerListener(sToogel);
-        sToogel.syncState();
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-
-        if (sToogel.onOptionsItemSelected(item)) {
-
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
-
-    private void Info() {
-        AlertDialog.Builder builder1 = new AlertDialog.Builder(this);
-
-        builder1.setMessage(getString(R.string.informacje));
-        builder1.setIcon(R.drawable.eye);
-        builder1.setTitle(getString(R.string.program));
-
-        builder1.setPositiveButton(
-                "OK",
-                new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        dialog.cancel();
-                    }
-                });
-
-
-        AlertDialog alert11 = builder1.create();
-        alert11.show();
-    }
-
 }

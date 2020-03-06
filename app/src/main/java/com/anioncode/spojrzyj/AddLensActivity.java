@@ -2,15 +2,22 @@ package com.anioncode.spojrzyj;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.media.Image;
 import android.os.Bundle;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 import androidx.appcompat.app.AppCompatActivity;
+
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -22,38 +29,48 @@ import java.util.List;
  */
 
 
-public class Addnew extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+public class AddLensActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
-///Zmienne
-    private Double Leweoko= 0.0;
-    private Double Praweoko= 0.0;
-    private String Typ="";
-    String Data="";
+    ///Zmienne
+    private Double Leweoko = 0.0;
+    private Double Praweoko = 0.0;
+    private String Typ = "";
+    String Data = "";
 
 
-    int day=0 ;
-    int month=0 ;
-    int year =0;
-///ELEMENTY LAYOUTU
+    int day = 0;
+    int month = 0;
+    int year = 0;
+    ///ELEMENTY LAYOUTU
     EditText editText1;
     EditText editText2;
     DatePicker datePicker;
     FloatingActionButton floatingActionButton;
     Spinner spinner;
-///KLASY
+    ///KLASY
     DatabaseHelper mDatabaseHelper;
-
+    private AdView mAdView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.data);
+        setContentView(R.layout.add_lens_activity);
+
+        MobileAds.initialize(AddLensActivity.this, "ca-app-pub-3788232558823244~6450723475");
+        mAdView = findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
 
         final SharedPreferences sharedPref = getPreferences(this.MODE_PRIVATE);
         spinner(sharedPref);
-        datePicker= findViewById(R.id.datePicker);
+        ImageView close = findViewById(R.id.close);
+        close.setOnClickListener(v -> {
+            finish();
+        });
 
-        editText1=findViewById(R.id.okol);
-        editText2=findViewById(R.id.okop);
+        datePicker = findViewById(R.id.datePicker);
+
+        editText1 = findViewById(R.id.okol);
+        editText2 = findViewById(R.id.okop);
 
 
         String txtokolewe = sharedPref.getString("okolewe", "");
@@ -63,10 +80,10 @@ public class Addnew extends AppCompatActivity implements AdapterView.OnItemSelec
         editText1.setText(txtokolewe);
         editText2.setText(txtokoprawe);
 
-       // Praweoko= Double.parseDouble(String.valueOf(editText2.getText()));
-      //  Praweoko= Double.valueOf(String.valueOf(editText2.getText()));
+        // Praweoko= Double.parseDouble(String.valueOf(editText2.getText()));
+        //  Praweoko= Double.valueOf(String.valueOf(editText2.getText()));
 
-        floatingActionButton=findViewById(R.id.fab);
+        floatingActionButton = findViewById(R.id.fab);
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -88,51 +105,50 @@ public class Addnew extends AppCompatActivity implements AdapterView.OnItemSelec
                 month = datePicker.getMonth() + 1;
                 year = datePicker.getYear();
 
-                Data=day+"."+month+"."+year;
+                Data = day + "." + month + "." + year;
 
-                if(editText1.getText().length() > 0)
-                {
-                    Leweoko= Double.parseDouble(editText1.getText().toString());
-                    Praweoko= Double.parseDouble(editText2.getText().toString());
+                if (editText1.getText().length() > 0) {
+                    Leweoko = Double.parseDouble(editText1.getText().toString());
+                    Praweoko = Double.parseDouble(editText2.getText().toString());
                 }
 
-                AddData(Leweoko,Praweoko,Typ,Data);
-                Intent intent = new Intent(Addnew.this, MainActivity.class);
+                AddData(Leweoko, Praweoko, Typ, Data);
+                Intent intent = new Intent(AddLensActivity.this, DashboardActivity.class);
                 startActivity(intent);
                 finish();
             }
         });
     }
 
-    public void AddData(Double one,Double two, String three,String four) {
+    public void AddData(Double one, Double two, String three, String four) {
         boolean insertData = false;
         mDatabaseHelper = new DatabaseHelper(this);
-             insertData = mDatabaseHelper.addData(one,two,three,four);
+        insertData = mDatabaseHelper.addData(one, two, three, four);
 
-            if (insertData) {
-                toastMessage("Data Successfully Inserted!");
-            } else {
-                toastMessage("Something went wrong");
-            }
+        if (insertData) {
+            toastMessage("Data Successfully Inserted!");
+        } else {
+            toastMessage("Something went wrong");
+        }
 
-     
 
-      
     }
-    private void toastMessage(String message){
-        Toast.makeText(this,message, Toast.LENGTH_SHORT).show();
+
+    private void toastMessage(String message) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
+
     @Override
     public void onBackPressed() {
-        Intent intent = new Intent(Addnew.this, MainActivity.class);
-        startActivity(intent);
+        //Intent intent = new Intent(AddLensActivity.this, DashboardActivity.class);
+        // startActivity(intent);
         finish();
     }
 
-    public void spinner( SharedPreferences sharedPreferences){
+    public void spinner(SharedPreferences sharedPreferences) {
 
-        spinner=findViewById(R.id.spinner);
-        spinner.setOnItemSelectedListener( Addnew.this);
+        spinner = findViewById(R.id.spinner);
+        spinner.setOnItemSelectedListener(AddLensActivity.this);
 
         List<String> categories = new ArrayList<String>();
 //        categories.add("Jednodniowe");
@@ -151,7 +167,7 @@ public class Addnew extends AppCompatActivity implements AdapterView.OnItemSelec
         dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(dataAdapter);
         String compareValue = sharedPreferences.getString("typ", "");
-       // String compareValue = String.valueOf(trees.getWysokosc());
+        // String compareValue = String.valueOf(trees.getWysokosc());
 
         if (compareValue != null) {
             int spinnerPosition = dataAdapter.getPosition(compareValue);
@@ -164,12 +180,10 @@ public class Addnew extends AppCompatActivity implements AdapterView.OnItemSelec
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
 
 
-        Typ=adapterView.getItemAtPosition(i).toString();
+        Typ = adapterView.getItemAtPosition(i).toString();
 
 
-
-
-      //  Toast.makeText(getApplicationContext(),"Wybrałeś "+ Typ+" "+Leweoko+" "+Praweoko,Toast.LENGTH_LONG).show();
+        //  Toast.makeText(getApplicationContext(),"Wybrałeś "+ Typ+" "+Leweoko+" "+Praweoko,Toast.LENGTH_LONG).show();
     }
 
     @Override

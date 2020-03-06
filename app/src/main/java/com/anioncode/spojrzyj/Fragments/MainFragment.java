@@ -1,8 +1,6 @@
 package com.anioncode.spojrzyj.Fragments;
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -18,9 +16,8 @@ import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 
-import com.anioncode.spojrzyj.Addnew;
+import com.anioncode.spojrzyj.AddLensActivity;
 import com.anioncode.spojrzyj.DatabaseHelper;
-import com.anioncode.spojrzyj.MainActivity;
 import com.anioncode.spojrzyj.R;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
@@ -80,7 +77,7 @@ public class MainFragment extends Fragment {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), Addnew.class);
+                Intent intent = new Intent(getActivity(), AddLensActivity.class);
                 startActivity(intent);
 
 
