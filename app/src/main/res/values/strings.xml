@@ -40,6 +40,9 @@
     <string name="powiadomienia">Powiadomienia</string>
     <string name="kalendarz">Kalendarz</string>
     <string name="select">Brak wpisów</string>
+    <string name="calendarz">Kalendarz</string>
+
+    <string name="zapasy">Zapasy</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>

@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -48,10 +49,11 @@ public class CalendarFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup parent, Bundle savedInstanceState) {
-        View view= inflater.inflate(R.layout.calendar_fragment, parent, false);
+        View view = inflater.inflate(R.layout.calendar_fragment, parent, false);
         DayYear = view.findViewById(R.id.DayYear);
         text = view.findViewById(R.id.Text);
         compactCalendarView = (CompactCalendarView) view.findViewById(R.id.compactcalendar_view);
+        ImageView today = view.findViewById(R.id.today);
 
         compactCalendarView.setFirstDayOfWeek(Calendar.MONDAY);
         mDatabaseHelper = new DatabaseHelper(getActivity());
@@ -107,11 +109,45 @@ public class CalendarFragment extends Fragment {
         //adapter.setClickListener(this);
         recyclerView.setAdapter(adapter);
 
+        SimpleDateFormat setText = new SimpleDateFormat("dd MMMM yyyy", Locale.getDefault());
+
+        Date firstDatex = new Date();
+
+        DayYear.setText(setText.format(firstDatex));
+        compactCalendarView.setCurrentDate(firstDatex);
+
+        listData.clear();
+        List<Event> eventsx = compactCalendarView.getEvents(firstDatex);
+        for (Event a : eventsx) {
+            listData.add(new Data(simpleDateFormat.format(new Date()), a.getData().toString()));
+
+        }
+        if (eventsx.size() > 0) text.setVisibility(View.GONE);
+        else text.setVisibility(View.VISIBLE);
+        adapter.notifyDataSetChanged();
+
+        today.setOnClickListener(v -> {
+            Date firstDate = new Date();
+
+            DayYear.setText(setText.format(firstDate));
+            compactCalendarView.setCurrentDate(firstDate);
+
+            listData.clear();
+            List<Event> events = compactCalendarView.getEvents(firstDate);
+            for (Event a : events) {
+                listData.add(new Data(simpleDateFormat.format(new Date()), a.getData().toString()));
+
+            }
+            if (events.size() > 0) text.setVisibility(View.GONE);
+            else text.setVisibility(View.VISIBLE);
+            adapter.notifyDataSetChanged();
 
 
+        });
 
-        return  view;
+        return view;
     }
+
     private void LensView() {
 
         Cursor data = mDatabaseHelper.AllData();

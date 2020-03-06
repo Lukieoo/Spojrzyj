@@ -20,13 +20,16 @@ import android.widget.RelativeLayout;
 
 import com.anioncode.spojrzyj.Fragments.CalendarFragment;
 import com.anioncode.spojrzyj.Fragments.MainFragment;
+import com.anioncode.spojrzyj.Fragments.StoreFragment;
 import com.google.android.material.navigation.NavigationView;
 
 public class DashboardActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private Toolbar toolbar;
     private DrawerLayout drawer;
-    private RelativeLayout moveRelative;;
+    private RelativeLayout moveRelative;
+    ;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -67,7 +70,7 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
         };
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             toggle.getDrawerArrowDrawable().setColor(getColor(R.color.colorPrimaryDark));
-        }else {
+        } else {
             toggle.getDrawerArrowDrawable().setColor(getResources().getColor(R.color.colorPrimaryDark));
         }
         drawer.addDrawerListener(toggle);
@@ -77,15 +80,15 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
         navigationView.setNavigationItemSelectedListener(this);
 
     }
+
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case R.id.menu:
 
-                    getSupportFragmentManager().beginTransaction().replace(R.id.layoutFrame,
-                            new MainFragment()).commit();
-                    drawer.closeDrawer(GravityCompat.START);
-
+                getSupportFragmentManager().beginTransaction().replace(R.id.layoutFrame,
+                        new MainFragment()).commit();
+                drawer.closeDrawer(GravityCompat.START);
 
                 break;
             case R.id.kalendarz:
@@ -93,7 +96,11 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
                         new CalendarFragment()).commit();
                 drawer.closeDrawer(GravityCompat.START);
                 break;
-
+            case R.id.zapasy:
+                getSupportFragmentManager().beginTransaction().replace(R.id.layoutFrame,
+                        new StoreFragment()).commit();
+                drawer.closeDrawer(GravityCompat.START);
+                break;
         }
 
 

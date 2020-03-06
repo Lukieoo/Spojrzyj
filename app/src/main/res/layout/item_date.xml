@@ -13,7 +13,7 @@
     android:layout_width="20dp"
     android:layout_height="20dp"/>
     <TextView
-
+        android:fontFamily="@font/productsansmedium"
         android:text="dd/mm/yyyy"
         style="@style/TextAppearance.AppCompat.Body1"
         android:textColor="@android:color/black"
@@ -24,7 +24,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
     <TextView
-
+        android:fontFamily="@font/productsanslight"
         android:textColor="@android:color/black"
         android:id="@+id/komunikat"
         android:text="założono soczewki"
