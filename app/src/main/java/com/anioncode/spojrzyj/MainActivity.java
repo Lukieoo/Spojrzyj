@@ -165,16 +165,16 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     }
 
-                    case R.id.historia: {
-
-                        finish();
-                     //   overridePendingTransition(R.anim.slide_from_left, R.anim.slide_to_right);
-                        drawerLayout.closeDrawers();
-                        Intent intent = new Intent(MainActivity.this, history.class);
-                        startActivity(intent);
-
-                        break;
-                    }
+//                    case R.id.historia: {
+//
+//                        finish();
+//                     //   overridePendingTransition(R.anim.slide_from_left, R.anim.slide_to_right);
+//                        drawerLayout.closeDrawers();
+//                        Intent intent = new Intent(MainActivity.this, history.class);
+//                        startActivity(intent);
+//
+//                        break;
+//                    }
                     case R.id.kalendarz: {
                         finish();
                         drawerLayout.closeDrawers();

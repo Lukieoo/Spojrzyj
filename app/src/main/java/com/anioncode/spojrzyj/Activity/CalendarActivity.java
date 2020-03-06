@@ -240,16 +240,16 @@ public class CalendarActivity extends AppCompatActivity implements AdapterCalend
                         break;
                     }
 
-                    case R.id.historia: {
-
-
-                        overridePendingTransition(R.anim.slide_from_left, R.anim.slide_to_right);
-                        drawerLayout.closeDrawers();
-                        Intent intent = new Intent(CalendarActivity.this, history.class);
-                        startActivity(intent);
-                        finish();
-                        break;
-                    }
+//                    case R.id.historia: {
+//
+//
+//                        overridePendingTransition(R.anim.slide_from_left, R.anim.slide_to_right);
+//                        drawerLayout.closeDrawers();
+//                        Intent intent = new Intent(CalendarActivity.this, history.class);
+//                        startActivity(intent);
+//                        finish();
+//                        break;
+//                    }
                     case R.id.kalendarz: {
 
                         drawerLayout.closeDrawers();

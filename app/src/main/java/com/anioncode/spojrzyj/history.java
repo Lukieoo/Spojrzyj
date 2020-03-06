@@ -115,10 +115,10 @@ public class history extends AppCompatActivity {
 
                         break;
                     }
-                    case R.id.historia: {
-                        drawerLayout.closeDrawers();
-                        break;
-                    }
+//                    case R.id.historia: {
+//                        drawerLayout.closeDrawers();
+//                        break;
+//                    }
                     case R.id.kalendarz: {
                         Intent intent =new Intent(history.this, CalendarActivity.class);
                         startActivity(intent);
