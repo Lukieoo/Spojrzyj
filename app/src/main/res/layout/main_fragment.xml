@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_margin="10dp"
+        android:elevation="4dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:fontFamily="@font/productsansmedium"
+                android:text="@string/twoje_preferencje"
+                android:textAlignment="center"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <RelativeLayout
+        android:id="@+id/Eye"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/main"
+        android:gravity="center"
+
+
+        >
+
+        <ImageView
+            android:id="@+id/eyeleft"
+            android:layout_width="120sp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="5sp"
+            android:contentDescription="@string/oko_lewe"
+            android:src="@drawable/eye" />
+
+        <ImageView
+            android:id="@+id/eyeright"
+            android:layout_width="120sp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5sp"
+            android:layout_toEndOf="@id/eyeleft"
+            android:contentDescription="@string/oko_prawe"
+            android:src="@drawable/eye" />
+
+
+    </RelativeLayout>
+
+    <GridLayout
+        android:id="@+id/Grid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Eye"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:background="@color/colorWhite"
+        android:columnCount="3"
+        android:rowCount="2">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="0"
+            android:layout_gravity="start"
+            android:layout_margin="3dp"
+             >
+
+            <RelativeLayout
+
+                android:layout_width="120dp"
+                android:layout_height="100dp">
+
+                <TextView
+                    android:id="@+id/L0"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:fontFamily="@font/productsanslight"
+                    android:gravity="center"
+                    android:text="@string/lewe_oko"
+
+
+                    ></TextView>
+
+                <TextView
+
+                    android:id="@+id/okolewe"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentBottom="true"
+                    android:gravity="center"
+                    android:paddingBottom="20dp"
+                    android:text=""
+                    android:textSize="25sp"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="2"
+            android:layout_gravity="end"
+            android:layout_margin="3dp"
+            app:cardCornerRadius="10dp">
+
+            <RelativeLayout
+                android:layout_width="120dp"
+                android:layout_height="100dp"
+
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/P0"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:fontFamily="@font/productsanslight"
+                    android:gravity="center"
+                    android:text="@string/prawe_oko"
+
+
+                    ></TextView>
+
+                <TextView
+                    android:id="@+id/okoprawe"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentBottom="true"
+                    android:gravity="center"
+                    android:paddingBottom="20dp"
+                    android:text=""
+                    android:textSize="25sp"
+                    android:textStyle="bold" />
+
+            </RelativeLayout>
+        </RelativeLayout>
+
+    </GridLayout>
+
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/Rel"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
+        android:layout_marginBottom="20dp"
+        android:background="@android:color/transparent">
+
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/contactlens" />
+    </RelativeLayout>
+
+    <RelativeLayout
+
+        android:id="@+id/Rel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/Grid"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="10dp"
+
+        android:layout_marginRight="30dp"
+        android:padding="5dp">
+
+        <TextView
+            android:id="@+id/info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/productsansmedium"
+            android:text="@string/informacje_podstawoe"
+            android:textAlignment="center"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/od"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/info"
+            android:fontFamily="@font/productsanslight"
+            android:text="@string/od_00_00_0000"
+            android:textAlignment="center" />
+
+        <TextView
+            android:id="@+id/doo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/od"
+            android:fontFamily="@font/productsanslight"
+            android:text="@string/do_00_00_0000"
+            android:textAlignment="center" />
+
+        <TextView
+            android:id="@+id/type"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/doo"
+            android:fontFamily="@font/productsanslight"
+            android:text="@string/typ_miesi_czne"
+            android:textAlignment="center" />
+
+        <ProgressBar
+            android:id="@+id/horizontal_progress_bar"
+            style="@android:style/Widget.ProgressBar.Horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/type"
+            android:layout_margin="20dp"
+            android:layout_marginBottom="5dp"
+            android:indeterminate="false"
+            android:max="100"
+            android:maxHeight="30dp"
+            android:minHeight="30dp"
+            android:progress="20"
+
+            android:progressBackgroundTint="@color/colorAccent"
+            android:progressTint="@color/colorPrimaryDark" />
+
+        <TextView
+            android:id="@+id/Dni"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/horizontal_progress_bar"
+            android:fontFamily="@font/productsanslight"
+            android:text="@string/pozostdni"
+            android:textAlignment="center"
+
+            />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/Dni"
+            android:layout_margin="20dp"
+            android:background="@color/colorPrimaryDark"
+            android:fontFamily="@font/productsansmedium"
+            android:text="@string/dodaj_nowe"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white" />
+
+
+
+    </RelativeLayout>
+    <com.google.android.gms.ads.AdView xmlns:ads="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/adView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Rel"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+
+        ads:adSize="BANNER"
+        ads:adUnitId="ca-app-pub-3788232558823244/5301293338"></com.google.android.gms.ads.AdView>
+</RelativeLayout>

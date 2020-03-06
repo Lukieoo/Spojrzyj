@@ -6,15 +6,22 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context=".DashboardActivity"
-    tools:openDrawer="start">
-
+    tools:context=".DashboardActivity">
+    <!--    tools:openDrawer=""-->
     <RelativeLayout
         android:id="@+id/MoveRelative"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <include layout="@layout/appbar_main" />
+        <include
+            android:id="@+id/tolbars"
+            layout="@layout/appbar_main" />
+
+        <FrameLayout
+            android:id="@+id/layoutFrame"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/tolbars" />
     </RelativeLayout>
 
     <com.google.android.material.navigation.NavigationView
@@ -22,7 +29,7 @@
         android:layout_width="220dp"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-        android:background="@color/colorAccent"
+        android:background="@color/colorPrimaryDark"
         android:fitsSystemWindows="true"
         app:headerLayout="@layout/header"
         app:itemIconTint="@android:color/white"

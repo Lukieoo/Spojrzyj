@@ -2,15 +2,17 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="180dp"
-    android:background="@color/colorAccent"
+    android:layout_height="200dp"
+    android:background="@color/colorPrimaryDark"
     android:orientation="vertical"
+    android:gravity="center"
     tools:context="com.anioncode.spojrzyj.MainActivity"
     android:padding="20dp">
 
 
     <ImageView
-        android:layout_marginTop="20dp"
+
+        android:layout_marginTop="50dp"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:contentDescription="@string/todo"

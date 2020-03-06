@@ -4,12 +4,16 @@ import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.RelativeLayout;
+
+import com.anioncode.spojrzyj.Fragments.MainFragment;
 
 public class DashboardActivity extends AppCompatActivity {
 
@@ -31,6 +35,10 @@ public class DashboardActivity extends AppCompatActivity {
 
         moveRelative = findViewById(R.id.MoveRelative);
 
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+        ft.replace(R.id.layoutFrame, new MainFragment());
+        ft.commit();
+
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close) {
             @Override
@@ -50,6 +58,11 @@ public class DashboardActivity extends AppCompatActivity {
                 }
             }
         };
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            toggle.getDrawerArrowDrawable().setColor(getColor(R.color.colorPrimaryDark));
+        }else {
+            toggle.getDrawerArrowDrawable().setColor(getResources().getColor(R.color.colorPrimaryDark));
+        }
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 

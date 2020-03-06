@@ -10,6 +10,8 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Build;
 import android.os.Bundle;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -264,6 +266,7 @@ public class CalendarActivity extends AppCompatActivity implements AdapterCalend
 
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer);
         scrol = findViewById(R.id.Main);
+
         sToogel = new ActionBarDrawerToggle(this, drawerLayout, R.string.open, R.string.close) {
             @Override
             public void onDrawerSlide(View drawerView, float slideOffset) {
