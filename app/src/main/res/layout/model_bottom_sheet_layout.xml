@@ -5,14 +5,30 @@
     android:layout_height="wrap_content"
     android:background="@android:color/white"
     android:orientation="vertical">
-    <TextView
-        android:fontFamily="@font/productsanslight"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="5dp"
-        android:text="Wybierz przedmiot :"
-        android:textColor="@android:color/black"
-        android:textSize="16sp" />
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_centerVertical="true"
+            android:fontFamily="@font/productsanslight"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:text="Wybierz przedmiot :"
+            android:textColor="@android:color/black"
+            android:textSize="16sp" />
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerHorizontal="true"
+           android:layout_margin="10dp"
+            android:elevation="2dp"
+            android:src="@drawable/add"
+            app:backgroundTint="@android:color/holo_blue_dark"
+            app:fabSize="normal" />
+    </RelativeLayout>
 
    <LinearLayout
        android:gravity="center"
@@ -63,7 +79,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
         <EditText
-            android:id="@+id/okol"
+            android:id="@+id/sztuk"
             style="@style/ContactTextView"
             android:layout_width="40dp"
             android:layout_height="wrap_content"
@@ -78,11 +94,11 @@
             android:layout_marginLeft="20dp"
             android:textSize="15sp"
             android:fontFamily="@font/productsanslight"
-            android:text="pojemnosc (ml) : "
+            android:text="pojemność (ml) : "
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
         <EditText
-            android:id="@+id/oko2"
+            android:id="@+id/pojemnosc"
             style="@style/ContactTextView"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
@@ -93,8 +109,148 @@
             android:maxLength="8"
             android:maxLines="1"
             android:textAlignment="center" />
-    </LinearLayout>
 
+    </LinearLayout>
+    <RelativeLayout
+
+        android:id="@+id/Rel1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/datePicker"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="10dp"
+        android:background="@color/colorWhite"
+
+        android:elevation="1dp"
+        android:padding="2dp">
+
+        <LinearLayout
+            android:id="@+id/line1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardid"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_margin="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="10dp">
+
+                    <TextView
+
+                        android:id="@+id/nameLabelTextView"
+                        style="@style/ContactLabelTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_centerVertical="true"
+                        android:layout_marginBottom="5dp"
+                        android:fontFamily="@font/productsansmedium"
+                        android:text="@string/lewe_oko" />
+
+                    <EditText
+                        android:id="@+id/okol"
+                        style="@style/ContactTextView"
+                        android:layout_width="50dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_toRightOf="@id/nameLabelTextView"
+                        android:inputType="numberDecimal|numberSigned"
+                        android:labelFor="@+id/okol"
+                        android:maxLength="6"
+                        android:maxLines="1"
+                        android:textAlignment="center" />
+                </LinearLayout>
+
+
+            </androidx.cardview.widget.CardView>
+
+            <ImageView
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_margin="10dp"
+                android:src="@drawable/contactlens" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardid2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/datePicker"
+
+                android:layout_margin="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="10dp">
+
+                    <TextView
+                        android:id="@+id/phoneLabelTextView"
+                        style="@style/ContactLabelTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_gravity="center"
+                        android:layout_marginBottom="5dp"
+                        android:fontFamily="@font/productsansmedium"
+                        android:text="@string/prawe_oko" />
+
+                    <EditText
+                        android:id="@+id/okop"
+                        style="@style/ContactTextView"
+                        android:layout_width="50dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:inputType="numberDecimal|numberSigned"
+                        android:maxLength="6"
+                        android:maxLines="1"
+                        android:textAlignment="center" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/rel2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/line1"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="2dp"
+            android:layout_marginBottom="20dp"
+            android:background="@color/colorWhite"
+
+            android:padding="2dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10sp"
+                android:fontFamily="@font/productsansmedium"
+                android:text="@string/typ" />
+
+            <Spinner
+                android:id="@+id/spinner"
+                android:layout_width="200dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="50dp"
+                android:fontFamily="@font/productsanslight"
+                android:textAlignment="center"></Spinner>
+        </RelativeLayout>
+
+    </RelativeLayout>
 
 
 </LinearLayout>
