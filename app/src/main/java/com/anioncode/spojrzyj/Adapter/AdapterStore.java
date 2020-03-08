@@ -50,7 +50,7 @@ public class AdapterStore extends RecyclerView.Adapter<AdapterStore.ViewHolder> 
         if (data.getTyp()==1){
             holder.show1.setVisibility(View.VISIBLE);
             holder.show2.setVisibility(View.GONE);
-            holder.leweOko.setText( context.getString(R.string.lewe_oko)+" : "+data.getLeweOko()+" "+data.getNumberSize());
+            holder.leweOko.setText( context.getString(R.string.lewe_oko)+" : "+data.getLeweOko());
             holder.praweOko.setText( context.getString(R.string.prawe_oko)+" : "+data.getPraweOko());
             holder.typ.setText( context.getString(R.string.typ)+" : "+data.getRodzaj());
             holder.trash0.setOnClickListener(v -> {
@@ -62,7 +62,7 @@ public class AdapterStore extends RecyclerView.Adapter<AdapterStore.ViewHolder> 
 
             holder.show1.setVisibility(View.GONE);
             holder.show2.setVisibility(View.VISIBLE);
-            holder.size.setText(data.getPojemnosc()+" ml "+" "+data.getNumberSize());
+            holder.size.setText(data.getPojemnosc()+" ml ");
             holder.trash.setOnClickListener(v -> {
                 listener.itemDelete(data);
                 mData.remove(holder.getAdapterPosition());

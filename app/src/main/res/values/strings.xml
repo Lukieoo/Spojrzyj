@@ -30,7 +30,7 @@
     <string name="info">O programie</string>
     <string name="zamknij">Zamknij</string>
     <string name="doo">do</string>
-    <string name="informacje">Wersja aktualna to 1.5-2019. Funkcje w tej części to:  \n-Zapisywanie mocy soczewek,   \n-Ustawienie daty ważności soczewki, \n-Powiadomienia o konieczności zmiany soczewki, \n-Ważnosć soczewek, \n-Widgety aplikacji. \n*Kontakt pawkrzysciak@gmail.com</string>
+    <string name="informacje">Wersja aktualna to 2.0-2020 :  \n-Zmieniono wygląd aplikacji,   \n-Zastąpiono zakładkę historia z zakładką  kalendarz, \n-Powiadomienia o konieczności zmiany soczewki połączonez z kalendarzem Google, \n-Możliwość tworzenia historii zapasów produktów, </string>
     <string name="program">Informacja</string>
     <string name="twoje">Twoje soczewki :</string>
     <string name="historia">Historia</string>
