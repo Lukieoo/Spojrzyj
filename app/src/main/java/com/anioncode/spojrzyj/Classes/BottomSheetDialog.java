@@ -118,9 +118,9 @@ public class BottomSheetDialog extends BottomSheetDialogFragment {
 
                 if (!okol.getText().toString().trim().equals("") && !okop.getText().toString().trim().equals("")) {
 
-                    listStore.add(new StoreModel(sumint()+1, curentSelected, Double.parseDouble(okol.getText().toString()), Double.parseDouble(okop.getText().toString()),
+                    listStore.add(new StoreModel(sumint() + 1, curentSelected, Double.parseDouble(okol.getText().toString()), Double.parseDouble(okop.getText().toString()),
                             Typ));
-                    AddData(sumint()+1, Double.parseDouble(okol.getText().toString()), Double.parseDouble(okop.getText().toString()), Typ, curentSelected, 0);
+                    AddData(sumint() + 1, Double.parseDouble(okol.getText().toString()), Double.parseDouble(okop.getText().toString()), Typ, curentSelected, 0);
                     adapter.notifyDataSetChanged();
                     dialog.dismiss();
                 }
@@ -128,14 +128,16 @@ public class BottomSheetDialog extends BottomSheetDialogFragment {
             } else if (curentSelected == 2) {
 
                 if (!pojemnosc.getText().toString().trim().equals("") && Integer.parseInt(pojemnosc.getText().toString()) > 0) {
-                    if (Integer.parseInt(sztuk.getText().toString()) > 0) {
-                        for (int i = 0; i < Integer.parseInt(sztuk.getText().toString()); i++) {
-                            listStore.add(new StoreModel(sumint()+1, curentSelected, Integer.parseInt(pojemnosc.getText().toString())));
-                            AddData(sumint()+1, 0, 0, "", curentSelected, Integer.parseInt(pojemnosc.getText().toString()));
+                    if (!sztuk.getText().toString().trim().equals("")) {
+                        if (Integer.parseInt(sztuk.getText().toString()) > 0) {
+                            for (int i = 0; i < Integer.parseInt(sztuk.getText().toString()); i++) {
+                                listStore.add(new StoreModel(sumint() + 1, curentSelected, Integer.parseInt(pojemnosc.getText().toString())));
+                                AddData(sumint() + 1, 0, 0, "", curentSelected, Integer.parseInt(pojemnosc.getText().toString()));
 
+                            }
+                            adapter.notifyDataSetChanged();
+                            dialog.dismiss();
                         }
-                        adapter.notifyDataSetChanged();
-                        dialog.dismiss();
                     }
 
                 }

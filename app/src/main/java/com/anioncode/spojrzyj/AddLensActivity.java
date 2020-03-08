@@ -72,6 +72,8 @@ public class AddLensActivity extends AppCompatActivity implements AdapterView.On
         spinner(sharedPref);
         ImageView close = findViewById(R.id.close);
         close.setOnClickListener(v -> {
+            Intent intent = new Intent(AddLensActivity.this, DashboardActivity.class);
+            startActivity(intent);
             finish();
         });
 
