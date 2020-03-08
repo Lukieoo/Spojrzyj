@@ -12,13 +12,17 @@
         android:icon="@drawable/ic_date"
         android:title="@string/kalendarz" />
     <item
+        android:id="@+id/historia"
+        android:icon="@drawable/ic_history"
+        android:title="@string/historia" />
+    <item
         android:id="@+id/zapasy"
         android:icon="@drawable/ic_dose"
         android:title="@string/zapasy" />
+
     <item
         android:id="@+id/info"
         android:icon="@drawable/ic_info"
         android:title="@string/info" />
-
 
 </menu>

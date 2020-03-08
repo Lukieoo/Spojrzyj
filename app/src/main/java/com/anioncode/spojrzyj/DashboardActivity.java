@@ -19,6 +19,7 @@ import android.view.View;
 import android.widget.RelativeLayout;
 
 import com.anioncode.spojrzyj.Fragments.CalendarFragment;
+import com.anioncode.spojrzyj.Fragments.HistoryFragment;
 import com.anioncode.spojrzyj.Fragments.InfoFragment;
 import com.anioncode.spojrzyj.Fragments.MainFragment;
 import com.anioncode.spojrzyj.Fragments.StoreFragment;
@@ -105,6 +106,11 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
             case R.id.info:
                 getSupportFragmentManager().beginTransaction().replace(R.id.layoutFrame,
                         new InfoFragment()).commit();
+                drawer.closeDrawer(GravityCompat.START);
+                break;
+            case R.id.historia:
+                getSupportFragmentManager().beginTransaction().replace(R.id.layoutFrame,
+                        new HistoryFragment()).commit();
                 drawer.closeDrawer(GravityCompat.START);
                 break;
         }

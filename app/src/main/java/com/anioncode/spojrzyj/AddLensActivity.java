@@ -57,6 +57,7 @@ public class AddLensActivity extends AppCompatActivity implements AdapterView.On
     ///KLASY
     DatabaseHelper mDatabaseHelper;
     private AdView mAdView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -147,8 +148,8 @@ public class AddLensActivity extends AppCompatActivity implements AdapterView.On
 
     @Override
     public void onBackPressed() {
-        //Intent intent = new Intent(AddLensActivity.this, DashboardActivity.class);
-        // startActivity(intent);
+        Intent intent = new Intent(AddLensActivity.this, DashboardActivity.class);
+        startActivity(intent);
         finish();
     }
 
@@ -170,12 +171,12 @@ public class AddLensActivity extends AppCompatActivity implements AdapterView.On
         categories.add(getString(R.string.kwartalne));
         categories.add(getString(R.string.roczne));
 
-        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, categories){
+        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, categories) {
 
             @Override
             public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
                 View v = super.getView(position, convertView, parent);
-                ((TextView) v).setTypeface(ResourcesCompat.getFont(AddLensActivity.this,R.font.productsanslight));
+                ((TextView) v).setTypeface(ResourcesCompat.getFont(AddLensActivity.this, R.font.productsanslight));
                 return v;
             }
         };

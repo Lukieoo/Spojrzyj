@@ -82,9 +82,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         Cursor data = db.rawQuery(query, null);
         return data;
     }
-    public void deleteName(){
+    public void deleteName(int id){
         SQLiteDatabase db = this.getWritableDatabase();
-        String query = "DELETE FROM " + TABLE_NAME + " WHERE id>0";
+        String query = "DELETE FROM " + TABLE_NAME + " WHERE id="+id+"";
         db.execSQL(query);
     }
 }

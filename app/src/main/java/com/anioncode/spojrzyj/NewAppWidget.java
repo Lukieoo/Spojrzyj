@@ -12,7 +12,6 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
-import static com.anioncode.spojrzyj.MainActivity.GLOBALNA;
 
 /**
  * Implementation of App Widget functionality.

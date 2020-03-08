@@ -10,8 +10,11 @@
     android:id="@+id/relative"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/home"
+
     tools:context="com.anioncode.spojrzyj.history">
+
+
+
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"
         android:layout_width="wrap_content"
@@ -27,7 +30,7 @@
         app:fabSize="normal"
         app:rippleColor="@android:color/black" />
     <ListView
-
+        android:background="@color/colorWhite"
         android:id="@+id/listview"
         android:listSelector="@drawable/borderhistory"
         android:layout_width="match_parent"
@@ -36,8 +39,16 @@
         android:dividerHeight="1dp"
         android:layout_margin="20dp">
 
-    </ListView>
 
+    </ListView>
+    <TextView
+        android:fontFamily="@font/productsanslight"
+        android:id="@+id/wpisy"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:text="Brak wpisów"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
     <com.google.android.gms.ads.AdView
         xmlns:ads="http://schemas.android.com/apk/res-auto"
         android:id="@+id/adViews"

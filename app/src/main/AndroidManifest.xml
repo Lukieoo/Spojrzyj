@@ -27,8 +27,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".AddLensActivity" />
-        <activity android:name=".MainActivity" />
-        <activity android:name=".history" />
 
         <receiver android:name=".Widget">
             <intent-filter>
