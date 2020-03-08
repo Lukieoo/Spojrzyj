@@ -45,5 +45,6 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="calendarz">Calendar</string>
     <string name="zapasy">Store</string>
-
+    <string name="liquid">Liquid lens</string>
+    <string name="Soczewki">Lens</string>
 </resources>

@@ -190,6 +190,7 @@
                 android:text="@string/typ" />
 
             <Spinner
+                android:theme="@style/SpinnerTheme"
                 android:id="@+id/spinner"
                 android:layout_width="200dp"
                 android:layout_height="30dp"

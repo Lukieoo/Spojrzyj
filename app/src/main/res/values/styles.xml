@@ -26,5 +26,9 @@
         <item name="colorControlNormal">#FFF</item>
         <item name="colorControlActivated">#FFF</item>
     </style>
+    <style name="SpinnerTheme">
 
+        <item name="android:fontFamily">@font/productsanslight</item>
+
+    </style>
 </resources>

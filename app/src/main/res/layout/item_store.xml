@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_margin="2dp"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+
+        android:id="@+id/show1"
+        android:background="@color/colorWhite"
+        android:layout_width="match_parent"
+        android:layout_height="80dp">
+        <ImageView
+            android:layout_centerVertical="true"
+            android:id="@+id/image"
+            android:layout_margin="20dp"
+            android:src="@drawable/contactlens"
+            android:layout_width="40dp"
+            android:layout_height="40dp"/>
+        <TextView
+            android:fontFamily="@font/productsanslight"
+            android:id="@+id/namelens"
+            android:textSize="12sp"
+            android:text="@string/Soczewki"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/image"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <LinearLayout
+            android:layout_marginLeft="20dp"
+            android:layout_toRightOf="@+id/namelens"
+            android:layout_toLeftOf="@+id/trash0"
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:gravity="center|left"
+            android:layout_height="match_parent">
+            <TextView
+                android:fontFamily="@font/productsansmedium"
+                android:id="@+id/leweOko"
+                android:textSize="12sp"
+                android:text="@string/lewe_oko"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:fontFamily="@font/productsansmedium"
+                android:textSize="12sp"
+                android:text="@string/prawe_oko"
+                android:id="@+id/praweOko"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:fontFamily="@font/productsansmedium"
+                android:textSize="12sp"
+                android:id="@+id/typ"
+                android:text="@string/typ"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+        <ImageButton
+            android:id="@+id/trash0"
+            android:layout_margin="8dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_trash"
+            android:layout_centerVertical="true"
+            android:layout_alignParentEnd="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/show2"
+        android:background="@color/colorWhite"
+        android:layout_width="match_parent"
+        android:layout_height="100dp">
+        <ImageView
+            android:layout_centerVertical="true"
+            android:id="@+id/image2"
+            android:layout_margin="20dp"
+            android:src="@drawable/liquid"
+            android:layout_width="40dp"
+            android:layout_height="40dp"/>
+        <RelativeLayout
+            android:layout_toRightOf="@id/image2"
+            android:id="@+id/progress"
+            android:layout_centerVertical="true"
+            android:layout_margin="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+
+        </RelativeLayout>
+
+        <TextView
+            android:fontFamily="@font/productsanslight"
+            android:id="@+id/name"
+            android:textSize="12sp"
+            android:text="@string/liquid"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/image2"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:fontFamily="@font/productsansmedium"
+            android:id="@+id/size"
+            android:textSize="12sp"
+            android:text="1000 ml"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/name"
+            android:layout_toLeftOf="@+id/trash"
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <ImageButton
+            android:id="@+id/trash"
+            android:layout_margin="8dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_trash"
+            android:layout_centerVertical="true"
+            android:layout_alignParentEnd="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </RelativeLayout>
+</LinearLayout>

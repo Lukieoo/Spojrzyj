@@ -3,6 +3,7 @@ package com.anioncode.spojrzyj;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.media.Image;
+import android.os.Build;
 import android.os.Bundle;
 
 import com.google.android.gms.ads.AdRequest;
@@ -10,15 +11,21 @@ import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.res.ResourcesCompat;
 
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -126,9 +133,9 @@ public class AddLensActivity extends AppCompatActivity implements AdapterView.On
         insertData = mDatabaseHelper.addData(one, two, three, four);
 
         if (insertData) {
-            toastMessage("Data Successfully Inserted!");
+            toastMessage("Dodano twoje soczewki :)");
         } else {
-            toastMessage("Something went wrong");
+            toastMessage("Coś poszło nie tak");
         }
 
 
@@ -163,7 +170,15 @@ public class AddLensActivity extends AppCompatActivity implements AdapterView.On
         categories.add(getString(R.string.kwartalne));
         categories.add(getString(R.string.roczne));
 
-        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, categories);
+        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, categories){
+
+            @Override
+            public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+                View v = super.getView(position, convertView, parent);
+                ((TextView) v).setTypeface(ResourcesCompat.getFont(AddLensActivity.this,R.font.productsanslight));
+                return v;
+            }
+        };
         dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(dataAdapter);
         String compareValue = sharedPreferences.getString("typ", "");
