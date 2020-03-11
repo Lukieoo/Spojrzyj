@@ -1,5 +1,5 @@
 # Spojrzyj
-Organizer na soczewki kontaktowe:
+Organizer na soczewki kontaktowe, zaktualizowany nowy wygląd aplikacji oraz dodano funkcjonalność.
 
 https://play.google.com/store/apps/details?id=com.anioncode.spojrzyj
 
