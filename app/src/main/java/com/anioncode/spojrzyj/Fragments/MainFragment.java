@@ -52,11 +52,15 @@ public class MainFragment extends Fragment {
     int dni = 0;
     long pozostalo = 0;
     String Data_do = "";
+
+    int Year = 2020;
+    int Month = 1;
+    int Day = 15;
     //    private ListView listView;
     private TextView Dni;
     SimpleDateFormat dateFormat;
     DatabaseHelper mDatabaseHelper;
-    Calendar calendar = Calendar.getInstance();
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup parent, Bundle savedInstanceState) {
         // Defines the xml file for the fragment
@@ -89,28 +93,7 @@ public class MainFragment extends Fragment {
 
             }
         });
-        button2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
 
-                Calendar beginTime = Calendar.getInstance();
-                beginTime.set(calendar.YEAR, calendar.MONTH, calendar.DAY_OF_MONTH, 7, 30);
-                Calendar endTime = Calendar.getInstance();
-                endTime.set(calendar.YEAR, calendar.MONTH, calendar.DAY_OF_MONTH, 8, 30);
-                Intent intent = new Intent(Intent.ACTION_INSERT)
-                        .setData(CalendarContract.Events.CONTENT_URI)
-                        .putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME, beginTime.getTimeInMillis())
-                        .putExtra(CalendarContract.EXTRA_EVENT_END_TIME, endTime.getTimeInMillis())
-                        .putExtra(CalendarContract.Events.TITLE, "Przypomnienie o ściągnięciu soczewek.")
-                        .putExtra(CalendarContract.Events.DESCRIPTION, "Twój termin soczewek mija dziś")
-                        .putExtra(CalendarContract.Events.EVENT_LOCATION, "Soczewki")
-                        .putExtra(CalendarContract.Events.AVAILABILITY, CalendarContract.Events.AVAILABILITY_BUSY);
-                startActivity(intent);
-
-
-
-            }
-        });
         return view;
     }
 
@@ -123,7 +106,7 @@ public class MainFragment extends Fragment {
     }
 
     private void LensView() {
-
+        Calendar calendar = Calendar.getInstance();
         Calendar calendartoday = Calendar.getInstance();
 
         Cursor data = mDatabaseHelper.getData();
@@ -200,9 +183,13 @@ public class MainFragment extends Fragment {
                 }
 
             }
+            // Year=;
             textViewdoo.setText(getString(R.string.doo) + " " + dateFormat.format(calendar.getTime()));
             Data_do = dateFormat.format(calendar.getTime());
-
+            String pomoDate = dateFormat.format(calendar.getTime());
+            Year=Integer.parseInt(pomoDate.substring(6,10));
+            Month=Integer.parseInt(pomoDate.substring(3,5));
+            Day=Integer.parseInt(pomoDate.substring(0,2));
 
             long differenceInMillis = calendar.getTimeInMillis() - calendartoday.getTimeInMillis();
             Calendar result = Calendar.getInstance();
@@ -212,6 +199,29 @@ public class MainFragment extends Fragment {
             Dni.setText(getString(R.string.pozostdni) + " " + pozostalo + " " + getString(R.string.dni));
             progrsbar();
             GLOBALNA = (int) pozostalo;
+            button2.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+
+                    Calendar beginTime = Calendar.getInstance();
+                    beginTime.set(Year, Month,
+                            Day, 7, 30);
+                    Calendar endTime = Calendar.getInstance();
+                    endTime.set(Year, Month,
+                            Day, 8, 30);
+                    Intent intent = new Intent(Intent.ACTION_INSERT)
+                            .setData(CalendarContract.Events.CONTENT_URI)
+                            .putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME, beginTime.getTimeInMillis())
+                            .putExtra(CalendarContract.EXTRA_EVENT_END_TIME, endTime.getTimeInMillis())
+                            .putExtra(CalendarContract.Events.TITLE, "Przypomnienie o ściągnięciu soczewek.")
+                            .putExtra(CalendarContract.Events.DESCRIPTION, "Twój termin soczewek mija dziś")
+                            .putExtra(CalendarContract.Events.EVENT_LOCATION, "Soczewki")
+                            .putExtra(CalendarContract.Events.AVAILABILITY, CalendarContract.Events.AVAILABILITY_BUSY);
+                    startActivity(intent);
+
+
+                }
+            });
         }
 
 
