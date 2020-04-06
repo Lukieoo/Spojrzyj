@@ -3,14 +3,17 @@ package com.anioncode.spojrzyj.Fragments;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.provider.CalendarContract;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -32,6 +35,7 @@ public class MainFragment extends Fragment {
     private AdView mAdView;
 
     private Button button;
+    private LinearLayout button2;
     private TextView textView;
     private TextView textViewod;
     private TextView textViewdoo;
@@ -52,11 +56,11 @@ public class MainFragment extends Fragment {
     private TextView Dni;
     SimpleDateFormat dateFormat;
     DatabaseHelper mDatabaseHelper;
-
+    Calendar calendar = Calendar.getInstance();
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup parent, Bundle savedInstanceState) {
         // Defines the xml file for the fragment
-        View view= inflater.inflate(R.layout.main_fragment, parent, false);
+        View view = inflater.inflate(R.layout.main_fragment, parent, false);
         MobileAds.initialize(getActivity(), "ca-app-pub-3788232558823244~6450723475");
         mAdView = view.findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
@@ -71,6 +75,7 @@ public class MainFragment extends Fragment {
         okolewe = view.findViewById(R.id.okolewe);
         okoprawe = view.findViewById(R.id.okoprawe);
         button = (Button) view.findViewById(R.id.button);
+        button2 = view.findViewById(R.id.button2);
         mDatabaseHelper = new DatabaseHelper(getActivity());
         LensView();
 
@@ -80,6 +85,28 @@ public class MainFragment extends Fragment {
                 Intent intent = new Intent(getActivity(), AddLensActivity.class);
                 startActivity(intent);
                 getActivity().finish();
+
+
+            }
+        });
+        button2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Calendar beginTime = Calendar.getInstance();
+                beginTime.set(calendar.YEAR, calendar.MONTH, calendar.DAY_OF_MONTH, 7, 30);
+                Calendar endTime = Calendar.getInstance();
+                endTime.set(calendar.YEAR, calendar.MONTH, calendar.DAY_OF_MONTH, 8, 30);
+                Intent intent = new Intent(Intent.ACTION_INSERT)
+                        .setData(CalendarContract.Events.CONTENT_URI)
+                        .putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME, beginTime.getTimeInMillis())
+                        .putExtra(CalendarContract.EXTRA_EVENT_END_TIME, endTime.getTimeInMillis())
+                        .putExtra(CalendarContract.Events.TITLE, "Przypomnienie o ściągnięciu soczewek.")
+                        .putExtra(CalendarContract.Events.DESCRIPTION, "Twój termin soczewek mija dziś")
+                        .putExtra(CalendarContract.Events.EVENT_LOCATION, "Soczewki")
+                        .putExtra(CalendarContract.Events.AVAILABILITY, CalendarContract.Events.AVAILABILITY_BUSY);
+                startActivity(intent);
+
 
 
             }
@@ -94,8 +121,9 @@ public class MainFragment extends Fragment {
         // Setup any handles to view objects here
         // EditText etFoo = (EditText) view.findViewById(R.id.etFoo);
     }
+
     private void LensView() {
-        Calendar calendar = Calendar.getInstance();
+
         Calendar calendartoday = Calendar.getInstance();
 
         Cursor data = mDatabaseHelper.getData();

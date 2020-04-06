@@ -86,7 +86,7 @@
                     android:id="@+id/line1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/calendar"
+                    android:layout_below="@+id/spin"
                     android:gravity="center"
                     android:orientation="horizontal">
 
@@ -179,16 +179,7 @@
 
                 </LinearLayout>
 
-                 <CheckBox
-                     style="@style/CheckBoxTheme"
-                     android:layout_below="@+id/spin"
-                     android:id="@+id/calendar"
-                     android:textColor="@color/cardview_dark_background"
-                     android:fontFamily="@font/abril_fatface"
-                     android:text="Dodaj do kalenarza Telefonu"
-                     android:layout_width="wrap_content"
-                     android:layout_centerHorizontal="true"
-                     android:layout_height="wrap_content"/>
+
 
                 <RelativeLayout
                     android:id="@+id/spin"

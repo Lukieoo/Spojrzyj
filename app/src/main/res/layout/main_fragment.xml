@@ -250,18 +250,52 @@
                 />
 
             <Button
+                android:elevation="4dp"
                 android:id="@+id/button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/Dni"
-                android:layout_margin="20dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
                 android:background="@color/colorPrimaryDark"
                 android:fontFamily="@font/productsansmedium"
                 android:text="@string/dodaj_nowe"
                 android:textAllCaps="false"
                 android:textColor="@android:color/white" />
 
-
+            <LinearLayout
+                android:padding="10dp"
+                android:elevation="4dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:id="@+id/button2"
+                android:drawableLeft="@drawable/calendar"
+                android:layout_width="match_parent"
+                android:drawablePadding="50dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/button"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:background="@color/colorWhite"
+                android:fontFamily="@font/productsansmedium"
+                android:text="@string/dodaj_nowe"
+                android:textAllCaps="false"
+                android:textColor="@android:color/white" >
+                <ImageView
+                    android:src="@drawable/calendar"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"/>
+                <TextView
+                    android:gravity="center"
+                    android:fontFamily="@font/productsanslight"
+                    android:text="Dodaj przypomnienie do kalendarza w twoim telefonie"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+            </LinearLayout>
         </RelativeLayout>
 
         <com.google.android.gms.ads.AdView xmlns:ads="http://schemas.android.com/apk/res-auto"

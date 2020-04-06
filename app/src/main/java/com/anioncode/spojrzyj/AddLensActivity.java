@@ -1,7 +1,9 @@
 package com.anioncode.spojrzyj;
 
+import android.Manifest;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.media.Image;
 import android.os.Build;
 import android.os.Bundle;
@@ -15,6 +17,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.core.content.res.ResourcesCompat;
 
 import android.provider.CalendarContract;
@@ -54,7 +58,7 @@ public class AddLensActivity extends AppCompatActivity implements AdapterView.On
     ///ELEMENTY LAYOUTU
     EditText editText1;
     EditText editText2;
-    CheckBox calendar;
+
     DatePicker datePicker;
     FloatingActionButton floatingActionButton;
     Spinner spinner;
@@ -67,6 +71,10 @@ public class AddLensActivity extends AppCompatActivity implements AdapterView.On
         super.onCreate(savedInstanceState);
         setContentView(R.layout.add_lens_activity);
 
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_CALENDAR) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_CALENDAR}, 100);
+
+        }
         MobileAds.initialize(AddLensActivity.this, "ca-app-pub-3788232558823244~6450723475");
         mAdView = findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
@@ -82,7 +90,7 @@ public class AddLensActivity extends AppCompatActivity implements AdapterView.On
         });
 
         datePicker = findViewById(R.id.datePicker);
-        calendar = findViewById(R.id.calendar);
+
 
         editText1 = findViewById(R.id.okol);
         editText2 = findViewById(R.id.okop);
@@ -115,22 +123,7 @@ public class AddLensActivity extends AppCompatActivity implements AdapterView.On
                 editorxx.putString("typ", Typ);
                 editorxx.commit();
 
-                if(calendar.isChecked()){
-                    Calendar beginTime = Calendar.getInstance();
-                    beginTime.set(2020, 0, 19, 7, 30);
-                    Calendar endTime = Calendar.getInstance();
-                    endTime.set(2020, 0, 19, 8, 30);
-                    Intent intent = new Intent(Intent.ACTION_INSERT)
-                            .setData(CalendarContract.Events.CONTENT_URI)
-                            .putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME, beginTime.getTimeInMillis())
-                            .putExtra(CalendarContract.EXTRA_EVENT_END_TIME, endTime.getTimeInMillis())
-                            .putExtra(CalendarContract.Events.TITLE, "Yoga")
-                            .putExtra(CalendarContract.Events.DESCRIPTION, "Group class")
-                            .putExtra(CalendarContract.Events.EVENT_LOCATION, "The gym")
-                            .putExtra(CalendarContract.Events.AVAILABILITY, CalendarContract.Events.AVAILABILITY_BUSY)
-                            .putExtra(Intent.EXTRA_EMAIL, "rowan@example.com,trevor@example.com");
-                    startActivity(intent);
-                }
+
                 day = datePicker.getDayOfMonth();
                 month = datePicker.getMonth() + 1;
                 year = datePicker.getYear();
