@@ -32,7 +32,7 @@
     <ListView
         android:background="@color/colorWhite"
         android:id="@+id/listview"
-        android:listSelector="@drawable/borderhistory"
+        android:listSelector="@drawable/border"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="3dp"

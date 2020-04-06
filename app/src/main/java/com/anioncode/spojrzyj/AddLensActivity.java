@@ -17,10 +17,12 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.res.ResourcesCompat;
 
+import android.provider.CalendarContract;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -29,6 +31,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 /**
@@ -51,6 +54,7 @@ public class AddLensActivity extends AppCompatActivity implements AdapterView.On
     ///ELEMENTY LAYOUTU
     EditText editText1;
     EditText editText2;
+    CheckBox calendar;
     DatePicker datePicker;
     FloatingActionButton floatingActionButton;
     Spinner spinner;
@@ -78,6 +82,7 @@ public class AddLensActivity extends AppCompatActivity implements AdapterView.On
         });
 
         datePicker = findViewById(R.id.datePicker);
+        calendar = findViewById(R.id.calendar);
 
         editText1 = findViewById(R.id.okol);
         editText2 = findViewById(R.id.okop);
@@ -110,7 +115,22 @@ public class AddLensActivity extends AppCompatActivity implements AdapterView.On
                 editorxx.putString("typ", Typ);
                 editorxx.commit();
 
-
+                if(calendar.isChecked()){
+                    Calendar beginTime = Calendar.getInstance();
+                    beginTime.set(2020, 0, 19, 7, 30);
+                    Calendar endTime = Calendar.getInstance();
+                    endTime.set(2020, 0, 19, 8, 30);
+                    Intent intent = new Intent(Intent.ACTION_INSERT)
+                            .setData(CalendarContract.Events.CONTENT_URI)
+                            .putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME, beginTime.getTimeInMillis())
+                            .putExtra(CalendarContract.EXTRA_EVENT_END_TIME, endTime.getTimeInMillis())
+                            .putExtra(CalendarContract.Events.TITLE, "Yoga")
+                            .putExtra(CalendarContract.Events.DESCRIPTION, "Group class")
+                            .putExtra(CalendarContract.Events.EVENT_LOCATION, "The gym")
+                            .putExtra(CalendarContract.Events.AVAILABILITY, CalendarContract.Events.AVAILABILITY_BUSY)
+                            .putExtra(Intent.EXTRA_EMAIL, "rowan@example.com,trevor@example.com");
+                    startActivity(intent);
+                }
                 day = datePicker.getDayOfMonth();
                 month = datePicker.getMonth() + 1;
                 year = datePicker.getYear();
