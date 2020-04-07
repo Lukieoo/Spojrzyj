@@ -23,7 +23,7 @@
                 android:layout_weight="4"
                 android:padding="4dp"
                 android:fontFamily="@font/productsanslight"
-                android:text="Testowa wersja mini magazynu do zarządzania zasobami. Dodaj soczewki i płyn."
+                android:text="@string/testowa_wersja_mini_magazynu_do_zarz_dzania_zasobami_dodaj_soczewki_i_p_yn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
 

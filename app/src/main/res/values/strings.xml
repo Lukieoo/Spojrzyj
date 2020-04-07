@@ -48,6 +48,18 @@
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="w_przypadku_wyst_pienia_b_d_w_zapyta_biznesowych_zapraszam_do_kontaktu_na_poni_szy_email_lub_po_prostu_kliknij_w_zg_o_b_d">W przypadku wystąpienia błędów , zapytań biznesowych. Zapraszam do kontaktu na poniższy email lub po prostu kliknij w \'Zgłoś błąd\' .</string>
+    <string name="kontakt">Kontakt</string>
+    <string name="zg_o_b_d">Zgłoś błąd</string>
+    <string name="wersja_2_1">Wersja 2.1</string>
+    <string name="dodaj_przypomnienie_do_kalendarza_w_twoim_telefonie">Dodaj przypomnienie do kalendarza w twoim telefonie</string>
+    <string name="w_tej_cz_ci_mo_esz_sprawdzi_histori_soczewek_oraz_termin_zako_czenia_ich_wa_no_ci_natomiast_gdy_doda_e_a_powiadomienie_do_swojego_kalendarza_mo_esz_zobczy_je_po_wci_ni_ciu_przycisku_obok">W tej części możesz sprawdzić historię soczewek oraz termin zakończenia ich ważności. Natomiast gdy dodałeś/aś powiadomienie do swojego kalendarza możesz zobczyć je po wciśnięciu obrazka kalendarza obok.</string>
+    <string name="brak_wpis_w">Brak wpisów</string>
+    <string name="historia_twoich_soczewek_usuwaj_niepotrzebne_dane_ostatni_wiersz_wskazuje_zawsze_na_twoje_najnowsze_soczewki">Historia twoich soczewek, usuwaj niepotrzebne dane ostatni wiersz wskazuje zawsze na twoje najnowsze soczewki.</string>
+    <string name="poj_ml">poj. (ml) :</string>
+    <string name="sztuk">sztuk :</string>
+    <string name="wybierz_przedmiot">Wybierz przedmiot :</string>
+    <string name="testowa_wersja_mini_magazynu_do_zarz_dzania_zasobami_dodaj_soczewki_i_p_yn">Testowa wersja mini magazynu do zarządzania zasobami. Dodaj soczewki i płyn.</string>
 
 
 </resources>

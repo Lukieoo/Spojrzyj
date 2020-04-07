@@ -47,5 +47,17 @@
     <string name="zapasy">Store</string>
     <string name="liquid">Liquid lens</string>
     <string name="Soczewki">Lens</string>
+    <string name="w_przypadku_wyst_pienia_b_d_w_zapyta_biznesowych_zapraszam_do_kontaktu_na_poni_szy_email_lub_po_prostu_kliknij_w_zg_o_b_d">In case of errors, business queries. Feel free to contact me at the email below or simply click \'Report Error\'.</string>
+    <string name="kontakt">Contact</string>
+    <string name="zg_o_b_d">Report Error</string>
+    <string name="wersja_2_1">Version 2.1</string>
+    <string name="dodaj_przypomnienie_do_kalendarza_w_twoim_telefonie">Add a reminder to your phone\'s calendar.</string>
+    <string name="w_tej_cz_ci_mo_esz_sprawdzi_histori_soczewek_oraz_termin_zako_czenia_ich_wa_no_ci_natomiast_gdy_doda_e_a_powiadomienie_do_swojego_kalendarza_mo_esz_zobczy_je_po_wci_ni_ciu_przycisku_obok">In this part you can check the history of lenses and their expiry date. However, when you have added a notification to your calendar, you can view it by pressing the calendar picture next to it.</string>
+    <string name="brak_wpis_w">No posts</string>
+    <string name="historia_twoich_soczewek_usuwaj_niepotrzebne_dane_ostatni_wiersz_wskazuje_zawsze_na_twoje_najnowsze_soczewki">The history of your lenses, delete unnecessary data, the last line always points to your latest lenses.</string>
+    <string name="poj_ml">cap. (ml)</string>
+    <string name="sztuk">quantity:</string>
+    <string name="wybierz_przedmiot">Select an item:</string>
+    <string name="testowa_wersja_mini_magazynu_do_zarz_dzania_zasobami_dodaj_soczewki_i_p_yn">Test version of the mini warehouse for resource management. Add lens and liquid.</string>
 
 </resources>

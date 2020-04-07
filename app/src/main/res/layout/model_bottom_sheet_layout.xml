@@ -15,7 +15,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="5dp"
-            android:text="Wybierz przedmiot :"
+            android:text="@string/wybierz_przedmiot"
             android:textColor="@android:color/black"
             android:textSize="16sp" />
         <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -86,7 +86,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/productsanslight"
-            android:text="sztuk : "
+            android:text="@string/sztuk"
             android:textSize="15sp" />
 
         <EditText
@@ -107,7 +107,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:fontFamily="@font/productsanslight"
-            android:text="poj. (ml) : "
+            android:text="@string/poj_ml"
             android:textSize="15sp" />
 
         <EditText

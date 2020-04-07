@@ -292,7 +292,7 @@
                 <TextView
                     android:gravity="center"
                     android:fontFamily="@font/productsanslight"
-                    android:text="Dodaj przypomnienie do kalendarza w twoim telefonie"
+                    android:text="@string/dodaj_przypomnienie_do_kalendarza_w_twoim_telefonie"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"/>
             </LinearLayout>

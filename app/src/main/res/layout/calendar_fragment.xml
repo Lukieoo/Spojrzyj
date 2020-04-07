@@ -42,7 +42,7 @@
                 android:layout_weight="4"
                 android:padding="4dp"
                 android:fontFamily="@font/productsanslight"
-                android:text="W tej części możesz sprawdzić historię soczewek oraz termin zakończenia ich ważności. Natomiast gdy dodałeś/aś powiadomienie do swojego kalendarza możesz zobczyć je po wciśnięciu przycisku obok."
+                android:text="@string/w_tej_cz_ci_mo_esz_sprawdzi_histori_soczewek_oraz_termin_zako_czenia_ich_wa_no_ci_natomiast_gdy_doda_e_a_powiadomienie_do_swojego_kalendarza_mo_esz_zobczy_je_po_wci_ni_ciu_przycisku_obok"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
             <ImageButton

@@ -41,7 +41,7 @@
             android:layout_weight="4"
             android:padding="4dp"
             android:fontFamily="@font/productsanslight"
-            android:text="Historia twoich soczewek, usuwaj niepotrzebne dane ostatni wiersz wskazuje zawsze  na twoje najnowsze soczewki."
+            android:text="@string/historia_twoich_soczewek_usuwaj_niepotrzebne_dane_ostatni_wiersz_wskazuje_zawsze_na_twoje_najnowsze_soczewki"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
@@ -64,7 +64,7 @@
         android:id="@+id/wpisy"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:text="Brak wpisów"
+        android:text="@string/brak_wpis_w"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
     <com.google.android.gms.ads.AdView

@@ -22,7 +22,7 @@
                     android:layout_below="@id/date"
                     android:textSize="17sp"
                     android:id="@+id/title"
-                    android:text="Wersja 2.1 "
+                    android:text="@string/wersja_2_1"
                     android:fontFamily="@font/productsansmedium"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
@@ -65,11 +65,12 @@
             android:layout_marginEnd="10dp"
             android:layout_marginBottom="10dp"
             android:background="@color/colorPrimaryDarkButton"
-            android:text="Zgłoś błąd"
+            android:text="@string/zg_o_b_d"
             android:textColor="@android:color/white" />
         <androidx.cardview.widget.CardView
             android:layout_below="@+id/button"
             android:layout_margin="5dp"
+            android:id="@+id/cards"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <LinearLayout
@@ -83,7 +84,7 @@
                     android:textIsSelectable="true"
                     android:gravity="center"
                     android:textSize="20sp"
-                    android:text="Kontakt"
+                    android:text="@string/kontakt"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
                 <TextView
@@ -92,7 +93,48 @@
                     android:textIsSelectable="true"
 
                     android:textSize="12sp"
-                    android:text="W przypadku wystąpienia błędów , zapytań biznesowych. Zapraszam do kontaktu na poniższy email lub po prostu kliknij w 'Zgłoś błąd' ."
+                    android:text="@string/w_przypadku_wyst_pienia_b_d_w_zapyta_biznesowych_zapraszam_do_kontaktu_na_poni_szy_email_lub_po_prostu_kliknij_w_zg_o_b_d"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+                <TextView
+                    android:fontFamily="@font/productsansmedium"
+                    android:padding="4dp"
+                    android:textIsSelectable="true"
+                    android:gravity="center"
+                    android:textSize="15sp"
+                    android:text="pawkrzysciak@gmail.com"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_below="@+id/cards"
+            android:layout_margin="5dp"
+            android:id="@+id/card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:padding="10dp"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:fontFamily="@font/productsansmedium"
+                    android:padding="4dp"
+                    android:textIsSelectable="true"
+                    android:gravity="center"
+                    android:textSize="20sp"
+                    android:text="Smoguś"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+                <TextView
+                    android:fontFamily="@font/productsanslight"
+                    android:padding="4dp"
+                    android:textIsSelectable="true"
+
+                    android:textSize="12sp"
+                    android:text="Sprawdź czym oddychasz. Aplikacja przedstawiająca raporty stanu aktualnej jakości powietrza w Polsce. Darmowa aplikacja z rzetelnymi danymi z oficjalnych stacji GIOŚ."
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
                 <TextView
