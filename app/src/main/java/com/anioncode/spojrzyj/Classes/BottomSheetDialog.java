@@ -116,7 +116,13 @@ public class BottomSheetDialog extends BottomSheetDialogFragment {
         fab.setOnClickListener(v -> {
             if (curentSelected == 1) {
 
-                if (!okol.getText().toString().trim().equals("") && !okop.getText().toString().trim().equals("")) {
+                if (!okol.getText().toString().trim().equals("") && !okop.getText().toString().trim().equals("")
+                        && !okol.getText().toString().trim().equals("-")
+                        && !okol.getText().toString().trim().equals("+")
+
+                        && !okop.getText().toString().trim().equals("-")
+                        && !okop.getText().toString().trim().equals("+")
+                ) {
 
                     listStore.add(new StoreModel(sumint() + 1, curentSelected, Double.parseDouble(okol.getText().toString()), Double.parseDouble(okop.getText().toString()),
                             Typ));
@@ -127,19 +133,22 @@ public class BottomSheetDialog extends BottomSheetDialogFragment {
 
             } else if (curentSelected == 2) {
 
-                if (!pojemnosc.getText().toString().trim().equals("") && Integer.parseInt(pojemnosc.getText().toString()) > 0) {
-                    if (!sztuk.getText().toString().trim().equals("")) {
-                        if (Integer.parseInt(sztuk.getText().toString()) > 0) {
-                            for (int i = 0; i < Integer.parseInt(sztuk.getText().toString()); i++) {
-                                listStore.add(new StoreModel(sumint() + 1, curentSelected, Integer.parseInt(pojemnosc.getText().toString())));
-                                AddData(sumint() + 1, 0, 0, "", curentSelected, Integer.parseInt(pojemnosc.getText().toString()));
+                if (!pojemnosc.getText().toString().trim().equals("+") && !pojemnosc.getText().toString().trim().equals("-")) {
+                    if (!pojemnosc.getText().toString().trim().equals("") && Integer.parseInt(pojemnosc.getText().toString()) > 0) {
+                        if (!sztuk.getText().toString().trim().equals("") && !sztuk.getText().toString().trim().equals("+") &&
+                                !sztuk.getText().toString().trim().equals("-")) {
+                            if (Integer.parseInt(sztuk.getText().toString()) > 0) {
+                                for (int i = 0; i < Integer.parseInt(sztuk.getText().toString()); i++) {
+                                    listStore.add(new StoreModel(sumint() + 1, curentSelected, Integer.parseInt(pojemnosc.getText().toString())));
+                                    AddData(sumint() + 1, 0, 0, "", curentSelected, Integer.parseInt(pojemnosc.getText().toString()));
 
+                                }
+                                adapter.notifyDataSetChanged();
+                                dialog.dismiss();
                             }
-                            adapter.notifyDataSetChanged();
-                            dialog.dismiss();
                         }
-                    }
 
+                    }
                 }
 
             }

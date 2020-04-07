@@ -22,7 +22,7 @@
                     android:layout_below="@id/date"
                     android:textSize="17sp"
                     android:id="@+id/title"
-                    android:text="Wersja 2.0 "
+                    android:text="Wersja 2.1 "
                     android:fontFamily="@font/productsansmedium"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
@@ -31,7 +31,7 @@
                     android:layout_margin="5dp"
                     android:layout_alignParentEnd="true"
                     android:id="@+id/date"
-                    android:text="09.03.2020"
+                    android:text="09.04.2020"
                     android:fontFamily="@font/productsanslight"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
@@ -55,6 +55,7 @@
         </androidx.cardview.widget.CardView>
 
         <Button
+            android:textAllCaps="false"
             android:id="@+id/button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -91,7 +92,7 @@
                     android:textIsSelectable="true"
 
                     android:textSize="12sp"
-                    android:text="W przypadku wystąpienia błędów , zapytań biznesowych. Zapraszam do kontaktu na poniższy email lub po prostu kliknij w 'Wyślij zapytanie' ."
+                    android:text="W przypadku wystąpienia błędów , zapytań biznesowych. Zapraszam do kontaktu na poniższy email lub po prostu kliknij w 'Zgłoś błąd' ."
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
                 <TextView

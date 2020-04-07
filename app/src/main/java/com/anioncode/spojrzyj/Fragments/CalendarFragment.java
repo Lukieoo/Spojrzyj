@@ -1,11 +1,16 @@
 package com.anioncode.spojrzyj.Fragments;
 
+import android.content.ContentUris;
+import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.CalendarContract;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -37,6 +42,7 @@ public class CalendarFragment extends Fragment {
     private NavigationView navigationView;
     private DrawerLayout drawerLayout;
     public ActionBarDrawerToggle sToogel;
+    public ImageButton calendarID;
     public RelativeLayout scrol;
     public TextView DayYear;
     public AdapterCalendar adapter;
@@ -52,6 +58,7 @@ public class CalendarFragment extends Fragment {
         View view = inflater.inflate(R.layout.calendar_fragment, parent, false);
         DayYear = view.findViewById(R.id.DayYear);
         text = view.findViewById(R.id.Text);
+        calendarID = view.findViewById(R.id.calendarID);
         compactCalendarView = (CompactCalendarView) view.findViewById(R.id.compactcalendar_view);
         ImageView today = view.findViewById(R.id.today);
 
@@ -65,6 +72,15 @@ public class CalendarFragment extends Fragment {
         listData = new ArrayList<>();
 
         DayYear.setText(simpleDateFormat.format(date));
+
+        calendarID.setOnClickListener(v -> {
+            Uri.Builder builder = CalendarContract.CONTENT_URI.buildUpon();
+            builder.appendPath("time");
+            ContentUris.appendId(builder, Calendar.getInstance().getTimeInMillis());
+            Intent intent = new Intent(Intent.ACTION_VIEW)
+                    .setData(builder.build());
+            startActivity(intent);
+        });
 
         compactCalendarView.setListener(new CompactCalendarView.CompactCalendarViewListener() {
             @Override
@@ -169,7 +185,7 @@ public class CalendarFragment extends Fragment {
                 Date date = formatter.parse(data.getString(4));
                 System.out.println(date);
                 System.out.println(formatter.format(date));
-                eventy.add(new Event(Color.parseColor("#81d4fa"), date.getTime(), "Założone soczeweki : " + data.getString(3)));
+                eventy.add(new Event(Color.parseColor("#81d4fa"), date.getTime(), "Założone : " + data.getString(3)));
                 c.setTime(date);
                 switch (data.getString(3)) {
                     case "Jednodniowe": {
@@ -218,7 +234,7 @@ public class CalendarFragment extends Fragment {
 
                 }
                 Date date1 = c.getTime();
-                eventy.add(new Event(Color.parseColor("#ef9a9a"), date1.getTime(), "Termin ważności dla : " + formatter.format(date)));
+                eventy.add(new Event(Color.parseColor("#ef9a9a"), date1.getTime(), "Termin dla : " + formatter.format(date)));
 
             } catch (ParseException e) {
                 e.printStackTrace();

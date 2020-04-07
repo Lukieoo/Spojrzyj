@@ -9,6 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <TextView
+            android:layout_marginLeft="10dp"
             android:layout_centerVertical="true"
             android:fontFamily="@font/productsanslight"
             android:layout_width="match_parent"
@@ -106,7 +107,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:fontFamily="@font/productsanslight"
-            android:text="pojemność (ml) : "
+            android:text="poj. (ml) : "
             android:textSize="15sp" />
 
         <EditText

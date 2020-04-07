@@ -6,11 +6,35 @@
     android:layout_height="match_parent" >
 
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
+    <RelativeLayout
+        android:id="@+id/relo"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="5dp" />
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_margin="10dp"
+            android:id="@+id/lin"
+
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_weight="4"
+                android:padding="4dp"
+                android:fontFamily="@font/productsanslight"
+                android:text="Testowa wersja mini magazynu do zarządzania zasobami. Dodaj soczewki i płyn."
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_below="@id/lin"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="5dp" />
+    </RelativeLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"
@@ -23,7 +47,7 @@
         android:src="@drawable/ic_box"
         app:backgroundTint="@android:color/holo_blue_dark"
         app:fabSize="normal"
-        app:layout_constraintBottom_toBottomOf="@+id/recyclerView"
+        app:layout_constraintBottom_toBottomOf="@+id/relo"
         app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

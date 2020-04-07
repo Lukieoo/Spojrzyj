@@ -204,10 +204,10 @@ public class MainFragment extends Fragment {
                 public void onClick(View view) {
 
                     Calendar beginTime = Calendar.getInstance();
-                    beginTime.set(Year, Month,
+                    beginTime.set(Year, Month-1,
                             Day, 7, 30);
                     Calendar endTime = Calendar.getInstance();
-                    endTime.set(Year, Month,
+                    endTime.set(Year, Month-1,
                             Day, 8, 30);
                     Intent intent = new Intent(Intent.ACTION_INSERT)
                             .setData(CalendarContract.Events.CONTENT_URI)

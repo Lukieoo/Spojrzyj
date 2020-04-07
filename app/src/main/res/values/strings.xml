@@ -30,7 +30,7 @@
     <string name="info">O programie</string>
     <string name="zamknij">Zamknij</string>
     <string name="doo">do</string>
-    <string name="informacje">Wersja aktualna to 2.0-2020 :  \n-Zmieniono wygląd aplikacji,   \n-Dadano  kalendarz, \n-Powiadomienia o konieczności zmiany soczewki usuniąte w tej wersji, \n-Możliwość tworzenia historii zapasów produktów, </string>
+    <string name="informacje">Wersja aktualna to 2.1-2020 :  \n-Kosmetyczne zmiany wyglądu aplikacji,   \n-Integracja z kalendarzem telefonu , \n-Powiadomienia dostępne z kalendarza, \n-Poprawa zabezpieczeń, </string>
     <string name="program">Informacja</string>
     <string name="twoje">Twoje soczewki :</string>
     <string name="historia">Historia</string>

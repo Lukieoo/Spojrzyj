@@ -32,7 +32,7 @@
     <string name="main">Home</string>
     <string name="akcje">Choose your action</string>
     <string name="program">Information</string>
-    <string name="informacje">Current version 2.0-2019   \nIf you want ask : pawkrzysciak@gmail.com</string>
+    <string name="informacje">Current version 2.1-2020   \nIf you want ask : pawkrzysciak@gmail.com</string>
     <string name="twoje">Lens expire</string>
     <string name="historia">History</string>
     <string name="appwidget_text">Day left :</string>
@@ -47,4 +47,5 @@
     <string name="zapasy">Store</string>
     <string name="liquid">Liquid lens</string>
     <string name="Soczewki">Lens</string>
+
 </resources>

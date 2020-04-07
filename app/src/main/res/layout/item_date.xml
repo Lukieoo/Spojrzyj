@@ -2,13 +2,13 @@
 <RelativeLayout
 
     android:layout_marginTop="4dp"
-
+    android:background="@color/colorWhite"
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="wrap_content">
 <ImageView
     android:layout_centerVertical="true"
     android:id="@+id/eye"
-    android:layout_margin="10dp"
+    android:layout_margin="5dp"
     android:src="@drawable/eye"
     android:layout_width="20dp"
     android:layout_height="20dp"/>
@@ -33,10 +33,10 @@
         android:layout_toRightOf="@id/date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
-    <View
-        android:layout_marginTop="1dp"
-        android:layout_below="@id/eye"
-        android:background="@color/colorPrimary"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"/>
+<!--    <View-->
+<!--        android:layout_marginTop="1dp"-->
+<!--        android:layout_below="@id/eye"-->
+<!--        android:background="@color/colorPrimary"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="1dp"/>-->
 </RelativeLayout>
