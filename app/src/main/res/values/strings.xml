@@ -58,6 +58,15 @@
     <string name="historia_twoich_soczewek_usuwaj_niepotrzebne_dane_ostatni_wiersz_wskazuje_zawsze_na_twoje_najnowsze_soczewki">Historia twoich soczewek, usuwaj niepotrzebne dane ostatni wiersz wskazuje zawsze na twoje najnowsze soczewki.</string>
     <string name="poj_ml">poj. (ml) :</string>
     <string name="sztuk">sztuk :</string>
+    <string name="P1">Przypomnienie o ściągnięciu soczewek.</string>
+    <string name="P2">Twój termin soczewek mija dziś.</string>
+    <string name="P3">"Soczewki"</string>
+
+    <string name="A1">"Dodano twoje soczewki 😁"</string>
+    <string name="A2">"Coś poszło nie tak 🤯"</string>
+
+    <string name="C1">"Założone : "</string>
+    <string name="C2">"Termin dla : "</string>
     <string name="wybierz_przedmiot">Wybierz przedmiot :</string>
     <string name="testowa_wersja_mini_magazynu_do_zarz_dzania_zasobami_dodaj_soczewki_i_p_yn">Testowa wersja mini magazynu do zarządzania zasobami. Dodaj soczewki i płyn.</string>
 

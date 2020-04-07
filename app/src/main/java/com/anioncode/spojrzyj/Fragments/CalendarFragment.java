@@ -185,7 +185,7 @@ public class CalendarFragment extends Fragment {
                 Date date = formatter.parse(data.getString(4));
                 System.out.println(date);
                 System.out.println(formatter.format(date));
-                eventy.add(new Event(Color.parseColor("#81d4fa"), date.getTime(), "Założone : " + data.getString(3)));
+                eventy.add(new Event(Color.parseColor("#81d4fa"), date.getTime(), getResources().getString(R.string.C1) + data.getString(3)));
                 c.setTime(date);
                 switch (data.getString(3)) {
                     case "Jednodniowe": {
@@ -234,7 +234,7 @@ public class CalendarFragment extends Fragment {
 
                 }
                 Date date1 = c.getTime();
-                eventy.add(new Event(Color.parseColor("#ef9a9a"), date1.getTime(), "Termin dla : " + formatter.format(date)));
+                eventy.add(new Event(Color.parseColor("#ef9a9a"), date1.getTime(), getResources().getString(R.string.C2) + formatter.format(date)));
 
             } catch (ParseException e) {
                 e.printStackTrace();

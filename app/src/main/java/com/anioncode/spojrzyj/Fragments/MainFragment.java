@@ -88,9 +88,8 @@ public class MainFragment extends Fragment {
             public void onClick(View view) {
                 Intent intent = new Intent(getActivity(), AddLensActivity.class);
                 startActivity(intent);
+                getActivity().overridePendingTransition(R.anim.enter_from_left,R.anim.exit_out_left);
                 getActivity().finish();
-
-
             }
         });
 
@@ -213,9 +212,9 @@ public class MainFragment extends Fragment {
                             .setData(CalendarContract.Events.CONTENT_URI)
                             .putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME, beginTime.getTimeInMillis())
                             .putExtra(CalendarContract.EXTRA_EVENT_END_TIME, endTime.getTimeInMillis())
-                            .putExtra(CalendarContract.Events.TITLE, "Przypomnienie o ściągnięciu soczewek.")
-                            .putExtra(CalendarContract.Events.DESCRIPTION, "Twój termin soczewek mija dziś")
-                            .putExtra(CalendarContract.Events.EVENT_LOCATION, "Soczewki")
+                            .putExtra(CalendarContract.Events.TITLE, getResources().getString(R.string.P1))
+                            .putExtra(CalendarContract.Events.DESCRIPTION, getResources().getString(R.string.P2))
+                            .putExtra(CalendarContract.Events.EVENT_LOCATION, getResources().getString(R.string.P3))
                             .putExtra(CalendarContract.Events.AVAILABILITY, CalendarContract.Events.AVAILABILITY_BUSY);
                     startActivity(intent);
 

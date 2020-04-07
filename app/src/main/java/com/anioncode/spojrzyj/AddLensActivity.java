@@ -86,6 +86,7 @@ public class AddLensActivity extends AppCompatActivity implements AdapterView.On
         close.setOnClickListener(v -> {
             Intent intent = new Intent(AddLensActivity.this, DashboardActivity.class);
             startActivity(intent);
+            overridePendingTransition(R.anim.enter_from_right,R.anim.exit_out_right);
             finish();
         });
 
@@ -130,21 +131,22 @@ public class AddLensActivity extends AppCompatActivity implements AdapterView.On
 
                 Data = day + "." + month + "." + year;
 
-                if (editText1.getText().length() > 0&&editText2.getText().length() > 0
-                        &&!editText1.getText().toString().trim().equals("-")
-                        &&!editText1.getText().toString().trim().equals("+")
+                if (editText1.getText().length() > 0 && editText2.getText().length() > 0
+                        && !editText1.getText().toString().trim().equals("-")
+                        && !editText1.getText().toString().trim().equals("+")
 
-                        &&!editText2.getText().toString().trim().equals("-")
-                        &&!editText2.getText().toString().trim().equals("+")
+                        && !editText2.getText().toString().trim().equals("-")
+                        && !editText2.getText().toString().trim().equals("+")
                 ) {
                     Leweoko = Double.parseDouble(editText1.getText().toString());
                     Praweoko = Double.parseDouble(editText2.getText().toString());
 
 
-                AddData(Leweoko, Praweoko, Typ, Data);
-                Intent intent = new Intent(AddLensActivity.this, DashboardActivity.class);
-                startActivity(intent);
-                finish();
+                    AddData(Leweoko, Praweoko, Typ, Data);
+                    Intent intent = new Intent(AddLensActivity.this, DashboardActivity.class);
+                    startActivity(intent);
+                    overridePendingTransition(R.anim.enter_from_right,R.anim.exit_out_right);
+                    finish();
                 }
             }
         });
@@ -156,9 +158,9 @@ public class AddLensActivity extends AppCompatActivity implements AdapterView.On
         insertData = mDatabaseHelper.addData(one, two, three, four);
 
         if (insertData) {
-            toastMessage("Dodano twoje soczewki :)");
+            toastMessage(getResources().getString(R.string.A1));
         } else {
-            toastMessage("Coś poszło nie tak");
+            toastMessage(getResources().getString(R.string.A2));
         }
 
 
@@ -172,6 +174,7 @@ public class AddLensActivity extends AppCompatActivity implements AdapterView.On
     public void onBackPressed() {
         Intent intent = new Intent(AddLensActivity.this, DashboardActivity.class);
         startActivity(intent);
+        overridePendingTransition(R.anim.enter_from_right,R.anim.exit_out_right);
         finish();
     }
 

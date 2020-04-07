@@ -59,5 +59,12 @@
     <string name="sztuk">quantity:</string>
     <string name="wybierz_przedmiot">Select an item:</string>
     <string name="testowa_wersja_mini_magazynu_do_zarz_dzania_zasobami_dodaj_soczewki_i_p_yn">Test version of the mini warehouse for resource management. Add lens and liquid.</string>
+    <string name="P1">Reminder to remove the lenses.</string>
+    <string name="P2">Your lens term is today.</string>
+    <string name="P3">Lenses</string>
+    <string name="A1">Your lenses have been added 😁</string>
+    <string name="A2">Something went wrong 🤯</string>
+    <string name="C1">Put on :</string>
+    <string name="C2">Deadline for:</string>
 
 </resources>
