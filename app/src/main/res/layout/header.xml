@@ -3,10 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="200dp"
-    android:background="@color/colorPrimaryDark"
+    android:background="@color/colorWhite"
     android:orientation="vertical"
     android:gravity="center"
-    tools:context="com.anioncode.spojrzyj.MainActivity"
+    tools:context="com.anioncode.spojrzyj.DashboardActivity"
     android:padding="20dp">
 
 
@@ -25,7 +25,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="0dp"
         android:text="@string/zarzadzaj"
-        android:textColor="@android:color/white"
+        android:textColor="@color/colorBlack"
         android:textSize="30sp"
         android:textStyle="bold" />
 
@@ -33,7 +33,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/akcje"
-        android:textColor="@android:color/white" />
+        android:textColor="@color/colorBlack" />
 
 
 </LinearLayout>

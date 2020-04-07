@@ -130,15 +130,22 @@ public class AddLensActivity extends AppCompatActivity implements AdapterView.On
 
                 Data = day + "." + month + "." + year;
 
-                if (editText1.getText().length() > 0) {
+                if (editText1.getText().length() > 0&&editText2.getText().length() > 0
+                        &&!editText1.getText().toString().trim().equals("-")
+                        &&!editText1.getText().toString().trim().equals("+")
+
+                        &&!editText2.getText().toString().trim().equals("-")
+                        &&!editText2.getText().toString().trim().equals("+")
+                ) {
                     Leweoko = Double.parseDouble(editText1.getText().toString());
                     Praweoko = Double.parseDouble(editText2.getText().toString());
-                }
+
 
                 AddData(Leweoko, Praweoko, Typ, Data);
                 Intent intent = new Intent(AddLensActivity.this, DashboardActivity.class);
                 startActivity(intent);
                 finish();
+                }
             }
         });
     }

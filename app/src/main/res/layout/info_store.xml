@@ -53,15 +53,19 @@
             </RelativeLayout>
 
         </androidx.cardview.widget.CardView>
+
         <Button
             android:id="@+id/button"
-            android:layout_margin="10dp"
-            android:layout_below="@+id/main"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/colorPrimaryDark"
-            android:textColor="@android:color/white"
-            android:text="Wyślij zapytanie"/>
+            android:layout_below="@+id/main"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@color/colorPrimaryDarkButton"
+            android:text="Zgłoś błąd"
+            android:textColor="@android:color/white" />
         <androidx.cardview.widget.CardView
             android:layout_below="@+id/button"
             android:layout_margin="5dp"

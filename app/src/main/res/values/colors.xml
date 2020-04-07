@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorPrimary">#6EC5FF</color>
-    <color name="colorPrimaryDark">#589DCC</color>
+    <color name="colorPrimaryDark">#000000</color>
+    <color name="colorPrimaryDarkButton">#589DCC</color>
     <color name="colorAccent">#BAE3FF</color>
     <color name="colorTolbar">#91c4e6</color>
     <color name="colorWhite">#ffffff</color>
 
+    <color name="colorNav">#36363A</color>
+    <color name="colorNav2">#C7EDE6</color>
+    <color name="colorBlack">#bb000000</color>
 </resources>

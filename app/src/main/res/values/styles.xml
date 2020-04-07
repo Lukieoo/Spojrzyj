@@ -31,4 +31,13 @@
         <item name="android:fontFamily">@font/productsanslight</item>
 
     </style>
+    <style name="NavigationDrawerStyle">
+
+        <item name="android:listPreferredItemHeightSmall">30dp
+        </item> <!-- item size in menu-->
+
+
+        <item name="android:dividerPadding">5dp</item>
+        <item name="fontFamily">@font/productsansmedium</item>
+    </style>
 </resources>

@@ -236,7 +236,7 @@
                 android:progress="20"
 
                 android:progressBackgroundTint="@color/colorAccent"
-                android:progressTint="@color/colorPrimaryDark" />
+                android:progressTint="@color/colorPrimaryDarkButton" />
 
             <TextView
                 android:id="@+id/Dni"
@@ -259,7 +259,7 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
-                android:background="@color/colorPrimaryDark"
+                android:background="@color/colorPrimaryDarkButton"
                 android:fontFamily="@font/productsansmedium"
                 android:text="@string/dodaj_nowe"
                 android:textAllCaps="false"
