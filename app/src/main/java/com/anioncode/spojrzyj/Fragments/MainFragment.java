@@ -1,6 +1,8 @@
 package com.anioncode.spojrzyj.Fragments;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.provider.CalendarContract;
@@ -16,6 +18,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 
@@ -70,6 +74,11 @@ public class MainFragment extends Fragment {
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
 
+        if (ContextCompat.checkSelfPermission(getActivity(), Manifest.permission.READ_CALENDAR) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.WRITE_CALENDAR}, 100);
+
+        }
+
         textView = view.findViewById(R.id.type);
         textViewod = view.findViewById(R.id.od);
         textViewdoo = view.findViewById(R.id.doo);
@@ -88,7 +97,7 @@ public class MainFragment extends Fragment {
             public void onClick(View view) {
                 Intent intent = new Intent(getActivity(), AddLensActivity.class);
                 startActivity(intent);
-                getActivity().overridePendingTransition(R.anim.enter_from_left,R.anim.exit_out_left);
+                getActivity().overridePendingTransition(R.anim.enter_from_left, R.anim.exit_out_left);
                 getActivity().finish();
             }
         });
@@ -110,11 +119,12 @@ public class MainFragment extends Fragment {
 
         Cursor data = mDatabaseHelper.getData();
         // ArrayList<String> listData = new ArrayList<>();
+        int k = 0;
         while (data.moveToNext()) {
             //get the value from the database in column 1
             //then add it to the ArrayList
             //      listData.add(data.getInt(0)+". L: "+data.getDouble(1)+", P: "+data.getDouble(2)+" "+data.getString(3)+" "+data.getString(4));
-
+            k++;
             okolewe.setText(data.getString(1));
             okoprawe.setText(data.getString(2));
             textView.setText(data.getString(3));
@@ -186,9 +196,9 @@ public class MainFragment extends Fragment {
             textViewdoo.setText(getString(R.string.doo) + " " + dateFormat.format(calendar.getTime()));
             Data_do = dateFormat.format(calendar.getTime());
             String pomoDate = dateFormat.format(calendar.getTime());
-            Year=Integer.parseInt(pomoDate.substring(6,10));
-            Month=Integer.parseInt(pomoDate.substring(3,5));
-            Day=Integer.parseInt(pomoDate.substring(0,2));
+            Year = Integer.parseInt(pomoDate.substring(6, 10));
+            Month = Integer.parseInt(pomoDate.substring(3, 5));
+            Day = Integer.parseInt(pomoDate.substring(0, 2));
 
             long differenceInMillis = calendar.getTimeInMillis() - calendartoday.getTimeInMillis();
             Calendar result = Calendar.getInstance();
@@ -201,12 +211,11 @@ public class MainFragment extends Fragment {
             button2.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-
                     Calendar beginTime = Calendar.getInstance();
-                    beginTime.set(Year, Month-1,
+                    beginTime.set(Year, Month - 1,
                             Day, 7, 30);
                     Calendar endTime = Calendar.getInstance();
-                    endTime.set(Year, Month-1,
+                    endTime.set(Year, Month - 1,
                             Day, 8, 30);
                     Intent intent = new Intent(Intent.ACTION_INSERT)
                             .setData(CalendarContract.Events.CONTENT_URI)
@@ -217,8 +226,15 @@ public class MainFragment extends Fragment {
                             .putExtra(CalendarContract.Events.EVENT_LOCATION, getResources().getString(R.string.P3))
                             .putExtra(CalendarContract.Events.AVAILABILITY, CalendarContract.Events.AVAILABILITY_BUSY);
                     startActivity(intent);
+                }
+            });
+        }
+        if (k == 0) {
 
-
+            button2.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Toast.makeText(getActivity(), R.string.add_first, Toast.LENGTH_LONG).show();
                 }
             });
         }

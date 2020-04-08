@@ -66,5 +66,6 @@
     <string name="A2">Something went wrong 🤯</string>
     <string name="C1">Put on :</string>
     <string name="C2">Deadline for:</string>
+    <string name="add_first">First \'add new\' so that you can add a reminder to them 🤯</string>
 
 </resources>

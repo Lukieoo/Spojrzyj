@@ -61,6 +61,7 @@
     <string name="P1">Przypomnienie o ściągnięciu soczewek.</string>
     <string name="P2">Twój termin soczewek mija dziś.</string>
     <string name="P3">"Soczewki"</string>
+    <string name="add_first">"Najpierw \'dodaj nowe\' byś mógł dodać do nich przypomnienie 🤯"</string>
 
     <string name="A1">"Dodano twoje soczewki 😁"</string>
     <string name="A2">"Coś poszło nie tak 🤯"</string>
